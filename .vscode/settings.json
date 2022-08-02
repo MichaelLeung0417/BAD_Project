@@ -1,0 +1,24 @@
+{
+  "sqltools.connections": [
+    {
+      "previewLimit": 50,
+      "server": "localhost",
+      "port": 5432,
+      "driver": "PostgreSQL",
+      "name": "tecky",
+      "database": "tecky",
+      "username": "oleviayuen",
+      "password": "12345"
+    },
+    {
+      "previewLimit": 50,
+      "server": "localhost",
+      "port": 5432,
+      "driver": "PostgreSQL",
+      "name": "smartchi",
+      "database": "smartchi",
+      "username": "oleviayuen",
+      "password": "12345"
+    }
+  ]
+}
