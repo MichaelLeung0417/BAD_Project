@@ -1,5 +1,6 @@
 import express from "express";
 import { client } from "./middlewares";
+import { hashPassword, checkPassword } from "./hash";
 
 export const userRoutes = express.Router();
 userRoutes.post("/register", register);
@@ -23,7 +24,7 @@ async function register(req: express.Request, res: express.Response) {
     try {
       await client.query(
         "INSERT INTO users(username, password, created_at, updated_at) VALUES($1, $2, NOW(), NOW())",
-        [username, password]
+        [username, await hashPassword(password)]
       );
     } catch (err) {
       console.error(err);
@@ -45,10 +46,10 @@ async function login(req: express.Request, res: express.Response) {
       username,
     ]);
 
-    if ((await password, result.rows[0].password)) {
-      req.session["isAdmin"] = true;
+    if (await checkPassword(password, result.rows[0].password)) {
+      req.session["isUser"] = true;
       req.session["user"] = result.rows[0];
-      res.redirect("/admin.html");
+      res.redirect("/mainPage.html");
       console.log(`${username} logged in`);
       return;
     }
@@ -62,11 +63,11 @@ async function login(req: express.Request, res: express.Response) {
 
   setTimeout(() => {
     res.redirect("/");
-  }, 3000);
+  }, 2000);
 }
 
 function logout(req: express.Request, res: express.Response) {
-  req.session["isAdmin"] = false;
+  req.session["isUser"] = false;
   delete req.session["user"];
   res.redirect("/");
 }
