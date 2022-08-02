@@ -1,4 +1,11 @@
 import express from "express";
+import { Client } from "pg";
+
+export const client = new Client({
+  database: process.env.DB_NAME,
+  user: process.env.DB_USERNAME,
+  password: process.env.DB_PASSWORD,
+});
 
 export const isLogin = (
   req: express.Request,
