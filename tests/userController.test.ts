@@ -1,4 +1,4 @@
-import { UserController } from "../controllers/userController";
+// import { UserController } from "../controllers/userController";
 
 describe("userController", () => {
   it("should add user data", () => {});

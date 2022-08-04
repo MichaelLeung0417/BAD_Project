@@ -1,4 +1,4 @@
-import { PetService } from "../services/petService";
+// import { PetService } from "../services/petService";
 
 describe("petService", () => {
   it("should retrieve pet data from db", () => {});
