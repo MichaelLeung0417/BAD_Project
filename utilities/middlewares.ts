@@ -1,5 +1,7 @@
 import express from "express";
 import { Client } from "pg";
+import dotenv from "dotenv";
+dotenv.config();
 
 export const client = new Client({
   database: process.env.DB_NAME,
