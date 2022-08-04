@@ -5,10 +5,10 @@ import expressSession from "express-session";
 import { client, isLogin } from "./middlewares";
 import { createUserRoutes } from "./routes/userRoutes";
 import { createPetRoutes } from "./routes/petRoutes";
-import { UserService } from "./services/userService";
 import { PetController } from "./controllers/petController";
 import { PetService } from "./services/petService";
 import { UserController } from "./controllers/userController";
+import { UserService } from "./services/userService";
 
 client.connect();
 const main = express();
