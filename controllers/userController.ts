@@ -1,6 +1,6 @@
 import { UserService } from "../services/userService";
 import express from "express";
-import { client } from "../middlewares";
+import { client } from "../utilities/middlewares";
 import { hashPassword, checkPassword } from "../hash";
 
 export class UserController {

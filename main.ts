@@ -2,7 +2,7 @@ import express from "express";
 // import knexSetup from "./utilities/knex";
 import Knex from "knex";
 import expressSession from "express-session";
-import { client, isLogin } from "./middlewares";
+import { client, isLogin } from "./utilities/middlewares";
 import { createUserRoutes } from "./routes/userRoutes";
 import { createPetRoutes } from "./routes/petRoutes";
 import { PetController } from "./controllers/petController";
