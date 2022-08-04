@@ -33,9 +33,9 @@ testing:
     #   with:
     #     sudo: false
     - run: |
-      yarn install
-      yarn knex migrate:lastest
-      yarn jest
+        yarn install
+        yarn knex migrate:lastest
+        yarn jest
 
 
 ##================================##
