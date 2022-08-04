@@ -34,11 +34,21 @@ jobs:
       #     sudo: false
       - run: |
           yarn install
-          yarn knex migrate:lastest
-          yarn knex seed:run
+
 
 
 ##================================##
 
-
-
+# deploy:
+#     if: github.ref_name == 'production'
+#     runs-on: ubuntu-latest
+#     needs: testing
+#     steps:
+#     - uses: fifsky/ssh-action@master
+#       with:
+#         command: |
+#           cd c21kb
+#           git pull
+#         host: 18.142.208.18
+#         user: ubuntu
+#         key: ${{secrets.SSH_PRIVATE_KEY}}
