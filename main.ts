@@ -1,11 +1,22 @@
 import express from "express";
+// import knexSetup from "./utilities/knex";
+import Knex from "knex";
 import expressSession from "express-session";
 import { client, isLogin } from "./middlewares";
 import { userRoutes } from "./userRoutes";
-import { petRouter } from "./routes/petRoutes";
+import { createPetRoutes } from "./routes/petRoutes";
+import { PetController } from "./controllers/petController";
+import { PetService } from "./services/petService";
 
 client.connect();
 const main = express();
+
+// for debug use
+const knexConfigs = require("../knexfile");
+const configMode = process.env.NODE_ENV || "development";
+const knexConfig = knexConfigs[configMode];
+const knex = Knex(knexConfig);
+//
 
 main.use(
   expressSession({
@@ -19,11 +30,15 @@ main.use(express.urlencoded());
 main.use(express.json());
 
 main.use(express.static("public"));
-main.use(isLogin, express.static("private"));
 
 main.use(userRoutes);
-main.use(petRouter);
+const petService = new PetService(knex);
+const petController = new PetController(petService);
+main.use(createPetRoutes(petController));
 
-main.listen(8000, () => {
-  console.log(`Listening on port 8000`);
+main.use(isLogin, express.static("private"));
+
+const PORT = 8000;
+main.listen(PORT, () => {
+  console.log(`Listening on port ${PORT}`);
 });

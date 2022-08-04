@@ -1,9 +1,11 @@
 import express from "express";
-import { PetService } from "../services/petService";
 import { PetController } from "../controllers/petController";
 
-export const petRouter = express.Router(petController: PetController);
+export function createPetRoutes(petController: PetController) {
+  const petRouter = express.Router();
+  petRouter.use("/addPet", petController.addPet);
+  petRouter.use("/displayPet", petController.displayPet);
+  petRouter.use("/getPetInfo", petController.getPetInfo);
 
-petRouter.use("/addPet", petController.addPet);
-petRouter.use("/displayPet", petController.displayPet);
-petRouter.use("/getPetInfo", petController.getPetInfo);
+  return petRouter;
+}
