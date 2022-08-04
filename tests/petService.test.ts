@@ -6,4 +6,6 @@ describe("petService", () => {
   it("should add new pet to database", () => {});
 
   it("should retrieve a list of pets", () => {});
+
+  it("should retrieve appearance", () => {});
 });
