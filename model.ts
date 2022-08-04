@@ -10,11 +10,11 @@ export interface Pet {
   talkScore: number;
   brightnessScore: number;
   cleanScore: number;
-  playerSocre: number;
-  juvenilleSprite: number;
+  playerScore: number;
+  juvenileSprite: number;
   adultSprite: number;
-  timeEllapsed: string;
+  timeElapsed: string;
   totalScore: number;
-  juvenille: boolean;
+  juvenile: boolean;
   adult: boolean;
 }
