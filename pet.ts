@@ -1,1 +1,0 @@
-import { Pet } from "./model";
