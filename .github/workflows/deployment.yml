@@ -35,7 +35,7 @@ jobs:
       - run: |
           yarn install
           yarn knex migrate:lastest
-          yarn jest
+          yarn knex seed:run
 
 
 ##================================##
