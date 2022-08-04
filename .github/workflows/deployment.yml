@@ -13,8 +13,8 @@ env:
 
 jobs:
   testing:
-    runs-on: ubuntu-lastest
-    container: mcr.microsoft.com/playwright:focal
+    runs-on: ubuntu-latest
+    container: node:latest
     env:
       DB_HOST: postgres
     services:
