@@ -13,7 +13,7 @@ import { UserController } from "./controllers/userController";
 client.connect();
 const main = express();
 
-// for debug use
+// for debug use - knex
 const knexConfigs = require("../knexfile");
 const configMode = process.env.NODE_ENV || "development";
 const knexConfig = knexConfigs[configMode];
@@ -32,10 +32,12 @@ main.use(express.json());
 
 main.use(express.static("public"));
 
+// function for user
 const userService = new UserService(knex);
 const userController = new UserController(userService);
 main.use(createUserRoutes(userController));
 
+// function for pet
 const petService = new PetService(knex);
 const petController = new PetController(petService);
 main.use(createPetRoutes(petController));
