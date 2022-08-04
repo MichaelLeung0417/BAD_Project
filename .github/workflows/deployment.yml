@@ -35,6 +35,7 @@ testing:
           - run: |
             yarn install
             yarn knex migrate:lastest
+            yarn jest
 
 
 ##================================##
