@@ -3,10 +3,12 @@ import express from "express";
 import Knex from "knex";
 import expressSession from "express-session";
 import { client, isLogin } from "./middlewares";
-import { userRoutes } from "./userRoutes";
+import { createUserRoutes } from "./routes/userRoutes";
 import { createPetRoutes } from "./routes/petRoutes";
+import { UserService } from "./services/userService";
 import { PetController } from "./controllers/petController";
 import { PetService } from "./services/petService";
+import { UserController } from "./controllers/userController";
 
 client.connect();
 const main = express();
@@ -16,7 +18,6 @@ const knexConfigs = require("../knexfile");
 const configMode = process.env.NODE_ENV || "development";
 const knexConfig = knexConfigs[configMode];
 const knex = Knex(knexConfig);
-//
 
 main.use(
   expressSession({
@@ -31,7 +32,10 @@ main.use(express.json());
 
 main.use(express.static("public"));
 
-main.use(userRoutes);
+const userService = new UserService(knex);
+const userController = new UserController(userService);
+main.use(createUserRoutes(userController));
+
 const petService = new PetService(knex);
 const petController = new PetController(petService);
 main.use(createPetRoutes(petController));
