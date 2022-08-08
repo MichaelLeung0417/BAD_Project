@@ -1,4 +1,5 @@
 // import { PetService } from "../services/petService";
+// import { Knex } from "knex";
 
 describe("petService", () => {
   it("should retrieve pet data from db", () => {});

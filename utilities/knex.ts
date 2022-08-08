@@ -8,5 +8,5 @@ export default function knexSetup() {
   const knexConfig = knexConfigs[configMode];
   const knex = Knex(knexConfig);
 
-  return knexSetup;
+  return knex;
 }
