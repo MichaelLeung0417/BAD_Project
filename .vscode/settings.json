@@ -19,6 +19,76 @@
       "database": "smartchi",
       "username": "oleviayuen",
       "password": "12345"
+    },
+    {
+      "previewLimit": 50,
+      "server": "localhost",
+      "port": 5432,
+      "askForPassword": true,
+      "driver": "PostgreSQL",
+      "name": "smartchi",
+      "database": "smartchi",
+      "username": "michael"
+    },
+    {
+      "previewLimit": 50,
+      "server": "localhost",
+      "port": 5432,
+      "askForPassword": true,
+      "driver": "PostgreSQL",
+      "name": "SmartChi",
+      "database": "smartchi",
+      "username": "michael"
+    },
+    {
+      "previewLimit": 50,
+      "server": "localhost",
+      "port": 5432,
+      "driver": "PostgreSQL",
+      "name": "SmartChi",
+      "database": "smartchi",
+      "username": "michael",
+      "password": "project"
+    },
+    {
+      "previewLimit": 50,
+      "server": "localhost",
+      "port": 5432,
+      "driver": "PostgreSQL",
+      "name": "SmartChi",
+      "database": "smartchi",
+      "username": "michael",
+      "password": "project"
+    },
+    {
+      "previewLimit": 50,
+      "server": "localhost",
+      "port": 5432,
+      "driver": "PostgreSQL",
+      "name": "SmartChi",
+      "database": "smartchi",
+      "username": "michael",
+      "password": "project"
+    },
+    {
+      "previewLimit": 50,
+      "server": "localhost",
+      "port": 5432,
+      "driver": "PostgreSQL",
+      "name": "Smart-Chi",
+      "database": "smart_chi",
+      "username": "michael",
+      "password": "project"
+    },
+    {
+      "previewLimit": 50,
+      "server": "localhost",
+      "port": 5432,
+      "driver": "PostgreSQL",
+      "name": "Smart_Chi",
+      "database": "smart_chi",
+      "username": "michael",
+      "password": "project"
     }
   ]
 }
