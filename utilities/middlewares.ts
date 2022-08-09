@@ -1,5 +1,7 @@
 import express from "express";
 import { Client } from "pg";
+import fs from "fs";
+import formidable from "formidable";
 import dotenv from "dotenv";
 dotenv.config();
 
@@ -20,3 +22,16 @@ export const isLogin = (
     res.redirect("/");
   }
 };
+
+// FORMS
+
+const uploadDir = "uploads";
+fs.mkdirSync("uploads", { recursive: true });
+
+export const form = formidable({
+  uploadDir,
+  keepExtensions: true,
+  maxFiles: 1,
+  maxFileSize: 20 * 1024 * 1024 ** 2,
+  // filter: (part) => part.mimetype?.startsWith("image/") || false,
+});
