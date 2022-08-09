@@ -3,10 +3,24 @@ import { Knex } from "knex";
 export class PetService {
   constructor(private knex: Knex) {}
 
-  async getAllPet() {
-    const allPets = await this.knex.select("*").from("user_pet").where("id", 1);
+  async getAllPets(userId: number) {
+    let results = await this.knex
+      .select("*")
+      .from("user_pet")
+      .where("user_id", userId);
 
-    return allPets;
+    const listOfPetInfo: Array<object> = [];
+
+    for (let pet in results) {
+      const petId = results[pet].pet_id;
+      const petInfo = await this.knex
+        .select("*")
+        .from("pets")
+        .where("id", petId);
+      listOfPetInfo.push(petInfo[0]);
+    }
+
+    return listOfPetInfo;
   }
 
   async addPet(petName: string, userId: number) {

@@ -10,6 +10,7 @@ describe("petService", () => {
 
   it("should retrieve pet data from db", async () => {});
 
+  // PASSED
   it("should add new pet to database", async () => {
     const petId = await petService.addPet("gogo", 1);
     console.log(petId);
@@ -23,7 +24,10 @@ describe("petService", () => {
     expect(results2.length).toBe(1);
   });
 
-  it("should retrieve a list of pets", () => {});
+  it("should retrieve a list of pets", async () => {
+    const results = await petService.getAllPets(1);
+    expect(results.length).toBeGreaterThan(0);
+  });
 
   it("should retrieve appearance", () => {});
 });

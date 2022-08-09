@@ -5,15 +5,21 @@ export class PetController {
   constructor(private petService: PetService) {}
 
   addPet = async (req: express.Request, res: express.Response) => {
-    let petName: string = req.body.petname;
-    let userId: number = req.session["userId"];
+    const petName: string = req.body.petname;
+    const userId: number = req.session["userId"];
 
     this.petService.addPet(petName, userId);
 
     res.json();
   };
 
-  showAllPets() {}
+  showAllPets = async (req: express.Request, res: express.Response) => {
+    const userId: number = req.body.userID;
 
-  getPetInfo() {}
+    const allPetInfo = this.petService.getAllPets(userId);
+
+    res.json(allPetInfo);
+  };
+
+  getPetInfo = async (req: express.Request, res: express.Response) => {};
 }
