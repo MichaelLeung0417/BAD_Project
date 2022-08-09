@@ -1,4 +1,4 @@
-// import { PetService } from "../services/petService";
+import { PetService } from "../services/petService";
 // import { Knex } from "knex";
 
 describe("petService", () => {

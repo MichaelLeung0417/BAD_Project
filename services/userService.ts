@@ -6,4 +6,6 @@ export class UserService {
   async register() {
     await this.knex();
   }
+
+  getAllUser() {}
 }
