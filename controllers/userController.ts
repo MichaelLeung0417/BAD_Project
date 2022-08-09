@@ -1,7 +1,7 @@
 import { UserService } from "../services/userService";
 import express from "express";
 import { client } from "../utilities/middlewares";
-import { hashPassword, checkPassword } from "../hash";
+import { hashPassword, checkPassword } from "../utilities/hash";
 
 export class UserController {
   constructor(private userService: UserService) {}

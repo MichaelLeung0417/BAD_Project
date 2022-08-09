@@ -7,5 +7,7 @@ export class UserService {
     await this.knex();
   }
 
-  getAllUser() {}
+  login() {}
+
+  logout() {}
 }

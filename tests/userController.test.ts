@@ -4,8 +4,8 @@ import { Request, Response } from "express";
 export class UserController {
   constructor(private userService: UserService) {}
 
-  getAllUser = async (req: Request, res: Response) => {
-    const data = await this.userService.getAllUser();
+  register = async (req: Request, res: Response) => {
+    const data = await this.userService.register();
     res.json(data);
   };
 }
