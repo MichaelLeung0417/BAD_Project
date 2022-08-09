@@ -3,10 +3,7 @@
 - [ ] ERD, WireFrame
 
   - [ ] users
-  - [ ] movies
-  - [ ] genres
-  - [ ] movie_genre
-  - [ ] like_movie
+  - [ ] pets
 
 - [x] TS Project Template
 
