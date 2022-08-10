@@ -4,8 +4,8 @@ import { Request, Response } from "express";
 export class UserController {
   constructor(private userService: UserService) {}
 
-  register = async (req: Request, res: Response) => {
-    const data = await jest.fn();
+  getAllUser = async (req: Request, res: Response) => {
+    const data = await this.userService.getAllUser("12");
     res.json(data);
   };
 }
