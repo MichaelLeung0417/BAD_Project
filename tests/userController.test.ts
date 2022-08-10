@@ -6,6 +6,7 @@ export class UserController {
 
   getAllUser = async (req: Request, res: Response) => {
     const data = await this.userService.getAllUser("12");
-    res.json(data);
+    // res.json(data);
+    console.log (data)
   };
 }
