@@ -39,17 +39,19 @@ jobs:
 
 
 ##================================##
+## yarn knex migrate:latest##
 
-# deploy:
-#     if: github.ref_name == 'production'
-#     runs-on: ubuntu-latest
-#     needs: testing
-#     steps:
-#     - uses: fifsky/ssh-action@master
-#       with:
-#         command: |
-#           cd c21kb
-#           git pull
-#         host: 18.142.208.18
-#         user: ubuntu
-#         key: ${{secrets.SSH_PRIVATE_KEY}}
+  deploy:
+    if: github.ref_name == 'production'
+    runs-on: ubuntu-latest
+    needs: testing
+    steps:
+    - uses: fifsky/ssh-action@master
+      with:
+        command: |
+          cd BAD_Project
+          git pull
+          forever restart 0
+        host: 18.142.208.18
+        user: ubuntu
+        key: ${{secrets.SSH_PRIVATE_KEY}}
