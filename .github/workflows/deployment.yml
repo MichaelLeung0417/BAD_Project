@@ -36,11 +36,11 @@ jobs:
           yarn install
           yarn knex migrate:latest 
           yarn knex seed:run
-          yarn jest
 
 
 
-##================================##
+
+##=================          yarn jest --detectOpenHandles===============##
 ## yarn knex migrate:latest##
 
   deploy:
