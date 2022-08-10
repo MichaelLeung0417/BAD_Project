@@ -6,8 +6,6 @@ import { PetService } from "../services/petService";
 describe("petService", () => {
   let petService: PetService = new PetService(knex);
 
-  it("should create pet data from db", () => {});
-
   it("should retrieve pet data from db", async () => {});
 
   // PASSED
@@ -24,10 +22,20 @@ describe("petService", () => {
     expect(results2.length).toBe(1);
   });
 
+  // PASSED
   it("should retrieve a list of pets", async () => {
     const results = await petService.getAllPets(1);
     expect(results.length).toBeGreaterThan(0);
   });
 
-  it("should retrieve appearance", () => {});
+  // PASSED
+  it("should change stats", async () => {
+    await petService.changeStats("foodScore", 1, 30);
+    const foodScore = await knex
+      .select("foodScore")
+      .from("pets")
+      .where("id", 30);
+
+    console.log(foodScore);
+  });
 });

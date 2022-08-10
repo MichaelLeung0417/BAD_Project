@@ -3,6 +3,7 @@ import { Knex } from "knex";
 export class PetService {
   constructor(private knex: Knex) {}
 
+  // DISPLAY ALL INFO OF ALL PETS OF USER
   async getAllPets(userId: number) {
     let results = await this.knex
       .select("*")
@@ -22,6 +23,10 @@ export class PetService {
 
     return listOfPetInfo;
   }
+
+  // DISPLAY ALL INFO OF A SINGLE PET
+
+  async getPetInfo(petId: number) {}
 
   async addPet(petName: string, userId: number) {
     let petId: number = await this.knex
@@ -50,5 +55,51 @@ export class PetService {
       .into("user_pet");
 
     return petId[0]["id"];
+  }
+
+  // STATS MODIFICATION
+
+  async changeStats(
+    changeRequest:
+      | "foodScore"
+      | "talkScore"
+      | "brightnessScore"
+      | "cleanScore"
+      | "playScore",
+    changeMagnitude: number,
+    petId: number
+  ) {
+    switch (changeRequest) {
+      case "foodScore":
+        await this.knex.raw(
+          'UPDATE pets SET "foodScore"= "foodScore"+? WHERE id=?',
+          [changeMagnitude, petId]
+        );
+        break;
+      case "talkScore":
+        await this.knex.raw(
+          'update pets set "talkScore"= "talkScore"+? WHERE id=?',
+          [changeMagnitude, petId]
+        );
+        break;
+      case "brightnessScore":
+        await this.knex.raw(
+          'update pets set "brightnessScore"= "brightnessScore"+? WHERE id=?',
+          [changeMagnitude, petId]
+        );
+        break;
+      case "cleanScore":
+        await this.knex.raw(
+          'update pets set "cleanScore"= "cleanScore"+? WHERE id=?',
+          [changeMagnitude, petId]
+        );
+        break;
+      case "playScore":
+        await this.knex.raw(
+          'update pets set "playScore"= "playScore"+? WHERE id=?',
+          [changeMagnitude, petId]
+        );
+        break;
+    }
   }
 }
