@@ -1,28 +1,24 @@
 import { UserService } from "../services/userService";
 import express from "express";
-import { client } from "../utilities/middlewares";
-import { hashPassword, checkPassword } from "../hash";
+import { checkPassword } from "../utilities/hash";
 
 export class UserController {
   constructor(private userService: UserService) {}
 
   async login(req: express.Request, res: express.Response) {
     try {
-      let username = req.body.username.trim();
-      let password = req.body.password.trim();
+      let username = req.body.username;
+      let password = req.body.password;
 
-      let result = await client.query("SELECT * FROM users where username=$1", [
-        username,
-      ]);
+      let userQuery = this.userService.getAllUser(username);
 
-      if (await checkPassword(password, result.rows[0].password)) {
+      if (await checkPassword(password, userQuery[0].password)) {
         req.session["isUser"] = true;
-        req.session["user"] = result.rows[0];
+        req.session["user"] = userQuery[0];
         res.redirect("/mainPage.html");
         console.log(`${username} logged in`);
         return;
       }
-
       console.log(`${username} failed to login`);
     } catch (err) {
       console.error(err);
@@ -39,21 +35,16 @@ export class UserController {
     try {
       let username = req.body.username.trim();
       let password = req.body.password.trim();
-      this.userService.register();
-      let result = await client.query("SELECT * FROM users WHERE username=$1", [
-        username,
-      ]);
 
-      if (result.rows.length > 0) {
+      let userQuery = this.userService.getAllUser(username);
+
+      if (userQuery !== undefined) {
         res.redirect("/?error=重覆username");
         return;
       }
 
       try {
-        await client.query(
-          "INSERT INTO users(username, password, created_at, updated_at) VALUES($1, $2, NOW(), NOW())",
-          [username, await hashPassword(password)]
-        );
+        this.userService.insertUser(username, password);
       } catch (err) {
         console.error(err);
         res.status(500).send("Internal Server Error");
