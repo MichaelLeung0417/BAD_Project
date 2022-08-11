@@ -1,10 +1,10 @@
-export interface User {
+export class User {
   id: number;
   username: string;
   password: string;
 }
 
-export interface Pet {
+export class Pet {
   id: number;
   foodScore: number;
   talkScore: number;

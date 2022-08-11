@@ -1,0 +1,62 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+}
+
+.bag {
+  box-sizing: border-box;
+  border: 1px solid #000;
+  width: 400px;
+  height: 100vh;
+}
+
+.flexbox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+.title {
+  font-size: 26px;
+  font-weight: bold;
+}
+
+#userID {
+  font-weight: bold;
+}
+
+.caption {
+  padding: 20px;
+  font-size: 20px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+}
+
+#userIcon {
+  background-color: grey;
+  border-radius: 40px;
+  width: 50px;
+  height: 50px;
+}
+
+.pets {
+  background-color: grey;
+  height: 250px;
+  width: 100%;
+}
+
+.friendsList {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+#friends {
+  background-color: grey;
+  border-radius: 40px;
+  width: 50px;
+  height: 50px;
+}
