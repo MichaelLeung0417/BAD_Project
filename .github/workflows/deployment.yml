@@ -45,7 +45,7 @@ jobs:
 ## yarn knex migrate:latest##
 
   deploy-python:
-    if: github.ref_name == 'production'
+    # if: github.ref_name == 'production'
     runs-on: ubuntu-latest
     needs: testing
     steps:
@@ -61,7 +61,7 @@ jobs:
         key: ${{secrets.SSH_PRIVATE_KEY}}
 
   deploy-node:
-    if: github.ref_name == 'production'
+    # if: github.ref_name == 'production'
     runs-on: ubuntu-latest
     needs: testing
     steps:
