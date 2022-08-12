@@ -1,3 +1,5 @@
+import { hungry, notSatisfied, doody } from "../utilities/petFunctions";
+
 export class User {
   id: number;
   username: string;
