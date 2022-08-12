@@ -7,7 +7,8 @@ export function createPetRoutes(petController: PetController) {
   petRouter.post("/showAllPets", petController.showAllPets);
   petRouter.post("/getPetInfo", petController.getPetInfo);
   petRouter.patch("/changeStats", petController.changeStats);
-  petRouter.post("/startTime");
+  petRouter.get("/play/:id", petController.play);
+  petRouter.get("/stopGame/:id", petController.stopGame);
 
   petRouter.post("");
 

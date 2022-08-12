@@ -1,8 +1,12 @@
 import { PetService } from "../services/petService";
 import express from "express";
+import { Pet } from "../model/models";
 
 export class PetController {
-  constructor(private petService: PetService) {}
+  constructor(
+    private petService: PetService,
+    private isGaming: boolean = false
+  ) {}
 
   addPet = async (req: express.Request, res: express.Response) => {
     const petName: string = req.body.petname;
@@ -43,4 +47,43 @@ export class PetController {
 
     res.json();
   };
+
+  // START GAME
+
+  play = async (req: express.Request, res: express.Response) => {
+    const id = parseInt(req.params.id);
+    const info = await this.petService.getPetInfo(id);
+
+    // init state
+    const state = new Pet(
+      info.id,
+      info.talkScore,
+      info.brightnessScore,
+      info.cleanScore,
+      info.playScore,
+      info.juvenileSprite,
+      info.adultSprite,
+      info.timeElapsed,
+      info.totalScore,
+      info.isJuvenile,
+      info.isAdult,
+      info.petName,
+      info.isHungry,
+      info.isGaming
+    );
+
+    // play
+    res.json({});
+
+    state.turnOn();
+    while (state.isGaming == true) {
+      state.addToGeneralTime();
+      state.hungerTimer();
+      state.evolveTimer();
+    }
+  };
+
+  // TURN OFF GAME
+
+  stopGame = async (req: express.Request, res: express.Response) => {};
 }

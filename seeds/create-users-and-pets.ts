@@ -2,15 +2,15 @@ import { Knex } from "knex";
 
 export async function seed(knex: Knex): Promise<void> {
   // Deletes ALL existing entries
+  await knex("user_pet").del();
   await knex("users").del();
   await knex("pets").del();
 
   // Inserts seed entries
 
-  // let user_id; //: Array<{ user_id: number }>;
-  // let pet_id; //: Array<{ pet_id: number }>;
+  let user_id: Array<{ user_id: number }>;
 
-  await knex
+  user_id = await knex
     .insert([
       {
         username: "olevia",
@@ -44,6 +44,8 @@ export async function seed(knex: Knex): Promise<void> {
         isJuvenile: false,
         isAdult: false,
         petName: "bobo",
+        isHungry: false,
+        isGaming: false,
       },
       {
         // juvenile
@@ -60,6 +62,8 @@ export async function seed(knex: Knex): Promise<void> {
         isJuvenile: false,
         isAdult: false,
         petName: "daudau",
+        isHungry: false,
+        isGaming: false,
       },
       {
         // adult
@@ -75,26 +79,36 @@ export async function seed(knex: Knex): Promise<void> {
         isJuvenile: false,
         isAdult: false,
         petName: "tommy",
+        isHungry: false,
+        isGaming: false,
       },
     ])
-    .into("pets")
-    .returning("id");
+    .into("pets");
 
   // PUT into user_pet
-  return await knex
-    .insert([
-      {
-        user_id: 1,
-        pet_id: 1,
-      },
-      {
-        user_id: 2,
-        pet_id: 2,
-      },
-      {
-        user_id: 3,
-        pet_id: 3,
-      },
-    ])
-    .into("user_pet");
+  // return await knex
+  //   .insert([
+  //     {
+  //       user_id: 7,
+  //       pet_id: 7,
+  //     },
+  //     {
+  //       user_id: 8,
+  //       pet_id: 8,
+  //     },
+  //     {
+  //       user_id: 9,
+  //       pet_id: 9,
+  //     },
+  //   ])
+  //   .into("user_pet");
+
+  for (let obj of user_id) {
+    for (let id in obj) {
+      await knex.raw("INSERT INTO user_pet (user_id, pet_id) VALUES (?,?)", [
+        obj[id],
+        obj[id],
+      ]);
+    }
+  }
 }

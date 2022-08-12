@@ -1,4 +1,5 @@
 import { Knex } from "knex";
+// import { Pet } from "../model/models";
 
 export class PetService {
   constructor(private knex: Knex) {}
@@ -26,7 +27,13 @@ export class PetService {
 
   // DISPLAY ALL INFO OF A SINGLE PET
 
-  async getPetInfo(petId: number) {}
+  async getPetInfo(petId: number) {
+    const info = await this.knex.select("*").from("pets").where("id", petId);
+
+    return info[0];
+  }
+
+  // ADD A PET
 
   async addPet(petName: string, userId: number) {
     let petId: number = await this.knex

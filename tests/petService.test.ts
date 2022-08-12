@@ -6,7 +6,11 @@ import { PetService } from "../services/petService";
 describe("petService", () => {
   let petService: PetService = new PetService(knex);
 
-  it("should retrieve pet data from db", async () => {});
+  // PASSED
+  it("should retrieve data from a pet from the db", async () => {
+    const info = await petService.getPetInfo(30);
+    console.log("info of one pet: ", info);
+  });
 
   // PASSED
   it("should add new pet to database", async () => {
