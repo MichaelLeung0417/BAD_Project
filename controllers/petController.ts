@@ -75,8 +75,10 @@ export class PetController {
     // play
     res.json({});
 
+    const gamingState = state.displayGameState();
+
     state.turnOn();
-    while (state.isGaming == true) {
+    while (gamingState == true) {
       state.addToGeneralTime();
       state.hungerTimer();
       state.evolveTimer();

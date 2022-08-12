@@ -45,6 +45,10 @@ export class Pet {
     }, 720); // every 12 mins
   }
 
+  public displayGameState() {
+    return this.isGaming;
+  }
+
   evolveTimer() {
     setInterval(() => {
       if (this.isJuvenile == true) {
@@ -80,16 +84,4 @@ export class Pet {
   stopGame() {
     this.isGaming = false;
   }
-  id: number;
-  foodScore: number;
-  talkScore: number;
-  brightnessScore: number;
-  cleanScore: number;
-  playerScore: number;
-  juvenileSprite: number;
-  adultSprite: number;
-  timeElapsed: string;
-  totalScore: number;
-  juvenile: boolean;
-  adult: boolean;
 }
