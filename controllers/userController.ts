@@ -17,7 +17,7 @@ export class UserController {
       if (await checkPassword(password, userQuery[0].password)) {
         req.session["isUser"] = true;
         req.session["user"] = userQuery[0].id;
-        res.redirect("/mainPage.html");
+        res.redirect("../private/bag.html");
         userId = req.session["user"];
         console.log(`${username} logged in`);
         return;
@@ -48,6 +48,7 @@ export class UserController {
 
       try {
         this.userService.insertUser(username, password);
+        res.redirect("/");
       } catch (err) {
         console.error(err);
         res.status(500).send("Internal Server Error");
