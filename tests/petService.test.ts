@@ -38,7 +38,7 @@ describe("petService", () => {
     const foodScore = await knex
       .select("foodScore")
       .from("pets")
-      .where("id", 30);
+      .where("id", 1);
 
     console.log(foodScore);
   });

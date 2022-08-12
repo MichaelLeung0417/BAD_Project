@@ -1,6 +1,4 @@
-import { hungry, notSatisfied, doody } from "../utilities/petFunctions";
-
-export interface User {
+export class User {
   id: number;
   username: string;
   password: string;
@@ -80,4 +78,16 @@ export class Pet {
   stopGame() {
     this.isGaming = false;
   }
+  id: number;
+  foodScore: number;
+  talkScore: number;
+  brightnessScore: number;
+  cleanScore: number;
+  playerScore: number;
+  juvenileSprite: number;
+  adultSprite: number;
+  timeElapsed: string;
+  totalScore: number;
+  juvenile: boolean;
+  adult: boolean;
 }
