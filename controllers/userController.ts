@@ -9,13 +9,15 @@ export class UserController {
     try {
       let username = req.body.username;
       let password = req.body.password;
+      let userId: string;
 
       let userQuery = this.userService.getAllUser(username);
 
       if (await checkPassword(password, userQuery[0].password)) {
         req.session["isUser"] = true;
-        req.session["user"] = userQuery[0];
+        req.session["user"] = userQuery[0].id;
         res.redirect("/mainPage.html");
+        userId = req.session["user"];
         console.log(`${username} logged in`);
         return;
       }
