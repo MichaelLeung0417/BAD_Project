@@ -11,9 +11,11 @@ class_names = ['apple', 'orange', 'others']
 
 app = Sanic("smartchi")
 
-model = tf.saved_model.load('./')
+model = tf.saved_model.load('./apple-orange-app/saved_model/apple_orange_model')
 
-
+@app.route("/hello", methods=['GET'])
+def hello(request):
+    return json({ "result":"It is working~" })
 
 @app.route("/upload", methods=['POST'])
 def post_json(request):

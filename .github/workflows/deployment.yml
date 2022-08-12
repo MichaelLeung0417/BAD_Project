@@ -44,7 +44,7 @@ jobs:
 ##=================          yarn jest --detectOpenHandles===============##
 ## yarn knex migrate:latest##
 
-  deploy-python:
+  deploy:
     # if: github.ref_name == 'production'
     runs-on: ubuntu-latest
     needs: testing
@@ -54,23 +54,10 @@ jobs:
         command: |
           cd BAD_Project
           git pull
-          cd python
-          python3 main.py
-        host: 18.142.208.18
-        user: ubuntu
-        key: ${{secrets.SSH_PRIVATE_KEY}}
-
-  deploy-node:
-    # if: github.ref_name == 'production'
-    runs-on: ubuntu-latest
-    needs: testing
-    steps:
-    - uses: fifsky/ssh-action@master
-      with:
-        command: |
-          cd BAD_Project
           forever stopall
           forever start index.js
+          cd python
+          forever start -c python3 main.py
         host: 18.142.208.18
         user: ubuntu
         key: ${{secrets.SSH_PRIVATE_KEY}}
