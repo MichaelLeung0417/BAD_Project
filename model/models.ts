@@ -45,6 +45,10 @@ export class Pet {
     }, 720); // every 12 mins
   }
 
+  public displayGameState() {
+    return this.isGaming;
+  }
+
   evolveTimer() {
     setInterval(() => {
       if (this.isJuvenile == true) {
