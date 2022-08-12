@@ -9,6 +9,7 @@ export class UserController {
     try {
       let username = req.body.username;
       let password = req.body.password;
+      // @ts-ignore
       let userId: string;
 
       let userQuery = this.userService.getAllUser(username);

@@ -3,10 +3,7 @@ import express from "express";
 import { Pet } from "../model/models";
 
 export class PetController {
-  constructor(
-    private petService: PetService,
-    private isGaming: boolean = false
-  ) {}
+  constructor(private petService: PetService) {}
 
   addPet = async (req: express.Request, res: express.Response) => {
     const petName: string = req.body.petname;

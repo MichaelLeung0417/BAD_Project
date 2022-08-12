@@ -78,10 +78,24 @@ export class Pet {
   }
 
   turnOn() {
-    this.isGaming = true;
+    return (this.isGaming = true);
   }
 
   stopGame() {
-    this.isGaming = false;
+    return (this.isGaming = false);
+  }
+
+  petsData() {
+    return {
+      id: this.id,
+      foodScore: this.foodScore,
+      talkScore: this.talkScore,
+      brightnessScore: this.brightnessScore,
+      cleanScore: this.cleanScore,
+      playerScore: this.playerScore,
+      juvenileSprite: this.juvenileSprite,
+      adultSprite: this.adultSprite,
+      totalScore: this.totalScore,
+    };
   }
 }
