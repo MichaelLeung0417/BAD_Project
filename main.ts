@@ -33,7 +33,7 @@ main.use(express.json());
 main.use(express.static("public"));
 
 // function for user
-const userService = new UserService(knex);
+const userService = new UserService(client);
 const userController = new UserController(userService);
 main.use(createUserRoutes(userController));
 
