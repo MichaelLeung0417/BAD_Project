@@ -1,5 +1,4 @@
 import express from "express";
-import knexSetup from "./utilities/knex";
 import expressSession from "express-session";
 import { client, isLogin } from "./utilities/middlewares";
 import { createUserRoutes } from "./routes/userRoutes";
@@ -8,9 +7,17 @@ import { PetController } from "./controllers/petController";
 import { PetService } from "./services/petService";
 import { UserController } from "./controllers/userController";
 import { UserService } from "./services/userService";
+import Knex from "knex";
+import dotenv from "dotenv";
+dotenv.config();
 
 client.connect();
 const main = express();
+
+const knexConfigs = require("./knexfile");
+const configMode = process.env.NODE_ENV || "development";
+const knexConfig = knexConfigs[configMode];
+const knex = Knex(knexConfig);
 
 main.use(
   expressSession({
@@ -26,12 +33,12 @@ main.use(express.json());
 main.use(express.static("public"));
 
 // function for user
-const userService = new UserService(knexSetup());
+const userService = new UserService(knex);
 const userController = new UserController(userService);
 main.use(createUserRoutes(userController));
 
 // function for pet
-const petService = new PetService(knexSetup());
+const petService = new PetService(knex);
 const petController = new PetController(petService);
 main.use(createPetRoutes(petController));
 
