@@ -1,22 +1,26 @@
-import { Knex } from "knex";
-import { hashPassword } from "../utilities/hash";
+import { Client } from "pg";
+import { hashedPassword } from "../utilities/hash";
 import { User } from "../model/models";
 
 export class UserService {
-  constructor(private knex: Knex) {}
+  constructor(private client: Client) {}
 
   async getAllUser(username: string): Promise<User | undefined> {
-    return await this.knex.raw<User>(
-      `select id, username, hashedPassword from users where users.username = ?`,
-      [username]
-    );
+    return (
+      await this.client.query<User>(
+        `select id, username from users where users.username = $1`,
+        [username]
+      )
+    ).rows[0];
   }
 
   async insertUser(username: string, password: string): Promise<User> {
-    const hashedPassword = await hashPassword(password);
-    return await this.knex.raw(
-      `INSERT INTO users (username, hashedPassword, created_at, updated_at) VALUES (?,?,NOW(),NOW()) RETURNING *`,
-      [username, hashedPassword]
-    );
+    const hashPassword = await hashedPassword(password);
+    return (
+      await this.client.query(
+        `INSERT INTO users (username, hashPassword, created_at, updated_at) VALUES ($1,$2,NOW(),NOW()) RETURNING *`,
+        [username, hashPassword]
+      )
+    ).rows[0];
   }
 }
