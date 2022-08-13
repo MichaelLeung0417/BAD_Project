@@ -1,3 +1,0 @@
-const prevState = {
-  isGaming: true,
-};
