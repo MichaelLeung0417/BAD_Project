@@ -14,7 +14,6 @@ describe("userService", () => {
 
   it("should insert data into db", async () => {
     const result = await userService.insertUser("testing", "123");
-
     console.log(result);
   });
 });
