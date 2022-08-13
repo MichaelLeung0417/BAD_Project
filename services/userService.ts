@@ -7,7 +7,7 @@ export class UserService {
 
   async getAllUser(username: string): Promise<User | undefined> {
     return await this.knex.raw<User>(
-      `select id, username, hashedPassword from users where users.username = ?`,
+      `select id, username, hashPassword from users where users.username = ?`,
       [username]
     );
   }
@@ -15,7 +15,7 @@ export class UserService {
   async insertUser(username: string, password: string): Promise<User> {
     const hashedPassword = await hashPassword(password);
     return await this.knex.raw(
-      `INSERT INTO users (username, hashedPassword, created_at, updated_at) VALUES (?,?,NOW(),NOW()) RETURNING *`,
+      `INSERT INTO users (username, "hashPassword", created_at, updated_at) VALUES (?,?,NOW(),NOW()) RETURNING *`,
       [username, hashedPassword]
     );
   }
