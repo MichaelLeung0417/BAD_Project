@@ -85,4 +85,10 @@ export class PetController {
   // TURN OFF GAME
 
   stopGame = async (req: express.Request, res: express.Response) => {};
+
+  speechTest = async (req: express.Request, res: express.Response) => {
+    const response = req.params.transcript;
+
+    res.json(`got it, you said ${response}`);
+  };
 }
