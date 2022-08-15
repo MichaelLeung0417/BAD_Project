@@ -12,6 +12,8 @@ body {
   height: 100vh;
 }
 
+
+
 .flexbox {
   display: flex;
   justify-content: space-between;
@@ -20,12 +22,16 @@ body {
 }
 
 .title {
-  font-size: 26px;
+  font-size: 40px;
   font-weight: bold;
+  font-family: 'Russo One', sans-serif;
+  margin: 50px 10px 10px 0px;
 }
 
 #userID {
   font-weight: bold;
+  font-family: 'Russo One', sans-serif;
+  font-size: 20px;
 }
 
 .caption {
@@ -33,6 +39,8 @@ body {
   font-size: 20px;
   padding-bottom: 0;
   margin-bottom: 20px;
+  font-family: 'Russo One', sans-serif;
+  margin: 30px 10px 20px 0px;
 }
 
 #userIcon {
@@ -47,6 +55,44 @@ body {
   height: 250px;
   width: 100%;
 }
+
+.carousel{
+  padding: 10px;
+  height: 100%;
+  position: relative;
+  list-style: none  ;
+}
+
+.slide{
+  top: 0;
+  bottom: 0;
+  position: absolute;
+}
+
+.carousel_button{
+  position: absolute;
+  top:45%;
+  transform: translateY(-60%);
+  background-color: Transparent;
+  background-repeat:no-repeat;
+  border: none;
+  cursor: pointer;
+}
+
+.carousel_button img{
+  width: 25px;
+  height: 25px;
+  object-fit: cover;
+}
+
+.carousel_button_left{
+  right: 690px;
+}
+
+.carousel_button_right{
+  left: 690px;
+}
+
 
 .friendsList {
   display: flex;
