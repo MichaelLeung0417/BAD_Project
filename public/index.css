@@ -13,19 +13,32 @@ body {
   color: #f5f872;
   -webkit-text-stroke: 2px #836334;
   margin: 150px 0px 0px 0px;
+  font-family: 'Russo One', sans-serif;
 }
 
 .gameSection {
   box-sizing: border-box;
   border: 1px solid #000;
-  width: 400px;
-  height: 100vh;
+  width: 390px;
+  height: 844px;
   padding: 20px;
-  background-image:url(index.png);
+  background-image:url(homepage.png);
   background-size: cover;
   object-fit: fill;
   padding: 0px;
+  position: relative;
+  background-repeat: repeat-x;
+  animation: background-animation 30s linear infinite;
+}
 
+@keyframes background-animation {
+  0% {
+    background-position-x: 0px;
+  }
+
+  100% {
+    background-position-x: 1920px;
+  }
 }
 
 .pet{
