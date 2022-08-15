@@ -1,4 +1,4 @@
-import { hungry, notSatisfied, doody } from "../utilities/petFunctions";
+import { doody } from "../utilities/petFunctions";
 
 export class User {
   id: number;
@@ -22,7 +22,7 @@ export class Pet {
     private isAdult: boolean,
     private isHungry: boolean,
     private isGaming: boolean,
-    private satisified: boolean
+    private satisfied: boolean
   ) {}
 
   returnState() {
@@ -94,7 +94,7 @@ export class Pet {
   }
 
   foodScoreModify(): number {
-    if (this.satisified) {
+    if (this.satisfied) {
       return this.foodScore + 5;
     } else {
       return this.foodScore;
@@ -102,7 +102,7 @@ export class Pet {
   }
 
   talkScoreModify(): number {
-    if (this.satisified) {
+    if (this.satisfied) {
       return this.talkScore + 5;
     } else {
       return this.talkScore;
@@ -110,7 +110,7 @@ export class Pet {
   }
 
   brightnessScoreModify(): number {
-    if (this.satisified) {
+    if (this.satisfied) {
       return this.brightnessScore + 5;
     } else {
       return this.brightnessScore;
@@ -118,7 +118,7 @@ export class Pet {
   }
 
   cleanScoreModify(): number {
-    if (this.satisified) {
+    if (this.satisfied) {
       return this.cleanScore + 5;
     } else {
       return this.cleanScore;
@@ -130,17 +130,23 @@ export class Pet {
       this.foodScore + this.talkScore + this.brightnessScore + this.cleanScore);
   }
 
-  // satisifyTimer(): boolean {
-  //   return (this.satisified = true);
+  // checksatisified = new Promise<boolean>(function (resolve, reject) {
+  //   if (satisfied) {
+  //     reject(false);
+  //     return;
+  //   }
+  //   resolve(true);
+  // });
+
+  // async countDown() {
+  //   setTimeout(function () {
+  //     await checksatisified;
+  //   }, 15000);
   // }
 
-  // async checksatisified() {
-  //   await new Promise((resolve, reject) => {
-  //     setTimeout(() => {
-  //       resolve(true);
-  //     }, 15000);
-  //   });
-  // }
+  checkAdult() {
+    return this.isAdult;
+  }
 
   petsData() {
     return {

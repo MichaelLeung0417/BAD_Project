@@ -14,7 +14,7 @@ Michael:
   - [ ] pet diffent reaction
   - [ ] decide pet apperance
 
-- [ ] connect backend to frontend
+- [ ] connect backend to frontend (socket.io)
 
 - [ ] AR(optional)
 
