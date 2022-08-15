@@ -1,0 +1,78 @@
+body {
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Russo One', sans-serif;
+}
+
+.gameSection {
+  box-sizing: border-box;
+  border: 1px solid #000;
+  width: 400px;
+  height: 100vh;
+}
+
+.prePage {
+  display: flex;
+  height: 50px;
+  align-items: center;
+  padding-left: 20px;
+  background-image: url(back-removebg-preview.png);
+  width: 50px;
+  background-size: cover;
+  padding: 10px;
+}
+
+/* .prePage:hover{
+  background-image: url(back.png);
+  height: 20px;
+  width: 20px;
+} */
+
+.game {
+  background-image: url(playhome.png);
+  background-size: cover;
+
+
+  /* background-color: grey; */
+  width: 100%;
+  height: 750px;
+  margin-bottom: 20px;
+}
+
+.options {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.eatButton {
+  width: 50px;
+  height: 50px;
+  border: 0px;
+  background-color: #fff;
+  background-image: url(cutlery.png);
+  background-size: cover;
+}
+
+.arButton {
+  width: 50px;
+  height: 50px;
+  /* background-color: grey;
+  border-radius: 40px; */
+  border: 0px;
+  background-color: #fff;
+  background-image: url(augmented-reality.png);
+  background-size: cover;
+}
+
+.talkButton {
+  width: 50px;
+  height: 50px;
+  border: 0px;
+  background-color: #fff;
+  /* background-color: grey;
+  border-radius: 40px; */
+  background-image: url(talk.png);
+  background-size: cover;
+}

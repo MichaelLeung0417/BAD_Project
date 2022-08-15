@@ -1,0 +1,108 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+}
+
+.gameSection {
+  box-sizing: border-box;
+  border: 1px solid #000;
+  width: 400px;
+  height: 100vh;
+}
+
+
+
+.flexbox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+.title {
+  font-size: 40px;
+  font-weight: bold;
+  font-family: 'Russo One', sans-serif;
+  margin: 50px 10px 10px 0px;
+}
+
+#userID {
+  font-weight: bold;
+  font-family: 'Russo One', sans-serif;
+  font-size: 20px;
+}
+
+.caption {
+  padding: 20px;
+  font-size: 20px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  font-family: 'Russo One', sans-serif;
+  margin: 30px 10px 20px 0px;
+}
+
+#userIcon {
+  background-color: grey;
+  border-radius: 40px;
+  width: 50px;
+  height: 50px;
+}
+
+.pets {
+  background-color: grey;
+  height: 250px;
+  width: 100%;
+}
+
+.carousel{
+  padding: 10px;
+  height: 100%;
+  position: relative;
+  list-style: none  ;
+}
+
+.slide{
+  top: 0;
+  bottom: 0;
+  position: absolute;
+}
+
+.carousel_button{
+  position: absolute;
+  top:45%;
+  transform: translateY(-60%);
+  background-color: Transparent;
+  background-repeat:no-repeat;
+  border: none;
+  cursor: pointer;
+}
+
+.carousel_button img{
+  width: 25px;
+  height: 25px;
+  object-fit: cover;
+}
+
+.carousel_button_left{
+  right: 690px;
+}
+
+.carousel_button_right{
+  left: 690px;
+}
+
+
+.friendsList {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+#friends {
+  background-color: grey;
+  border-radius: 40px;
+  width: 50px;
+  height: 50px;
+}
