@@ -21,7 +21,8 @@ export class Pet {
     private isJuvenile: boolean,
     private isAdult: boolean,
     private isHungry: boolean,
-    private isGaming: boolean
+    private isGaming: boolean,
+    private satisified: boolean
   ) {}
 
   returnState() {
@@ -39,41 +40,45 @@ export class Pet {
   }
 
   hungerTimer() {
-    setInterval(() => {
-      hungry();
-      this.satisfactionTimer();
-    }, 720); // every 12 mins
+    let timesleft = 4;
+    let downloadTimer = setInterval(() => {
+      if (timesleft <= 0) {
+        clearInterval(downloadTimer);
+      }
+      timesleft -= 1;
+      return (this.isHungry = true);
+    }, 13000); // check every 13mins
+  }
+
+  evolveTimer() {
+    let timesleft = 1;
+    let downloadTimer = setInterval(() => {
+      if (timesleft <= 0) {
+        clearInterval(downloadTimer);
+      }
+      timesleft -= 1;
+      if (this.isJuvenile == true) {
+        return (this.isAdult = true);
+      } else {
+        return (this.isAdult = false);
+      }
+    }, 30000); // every 30 mins
   }
 
   public displayGameState() {
     return this.isGaming;
   }
 
-  evolveTimer() {
-    setInterval(() => {
-      if (this.isJuvenile == true) {
-        this.isAdult = true;
-        return this.isAdult;
-      }
-      this.isJuvenile = true;
-      return this.isJuvenile;
-    }, 1800); // every 30 mins
-  }
-
-  satisfactionTimer() {
-    while (this.isHungry) {
-      // if (!this.isHungry) {
-      //   return;
-      // }
-      setTimeout(() => {
-        notSatisfied();
-      }, 15); // 15 seconds
-    }
-  }
+  // satisfactionTimer() {
+  //   while (this.isHungry) {
+  //     setTimeout(() => {
+  //       notSatisfied();
+  //     }, 15000); // 15 seconds
+  //   }
+  // }
 
   eat() {
-    this.isHungry = false;
-    return;
+    return (this.isHungry = false);
   }
 
   doodyTimer() {
@@ -88,15 +93,54 @@ export class Pet {
     return (this.isGaming = false);
   }
 
-  foodScoreModify() {}
+  foodScoreModify(): number {
+    if (this.satisified) {
+      return this.foodScore + 5;
+    } else {
+      return this.foodScore;
+    }
+  }
 
-  talkScoreModify() {}
+  talkScoreModify(): number {
+    if (this.satisified) {
+      return this.talkScore + 5;
+    } else {
+      return this.talkScore;
+    }
+  }
 
-  brightnessScoreModify() {}
+  brightnessScoreModify(): number {
+    if (this.satisified) {
+      return this.brightnessScore + 5;
+    } else {
+      return this.brightnessScore;
+    }
+  }
 
-  cleanScoreModify() {}
+  cleanScoreModify(): number {
+    if (this.satisified) {
+      return this.cleanScore + 5;
+    } else {
+      return this.cleanScore;
+    }
+  }
 
-  totalScoreModify() {}
+  totalScoreModify(): number {
+    return (this.talkScore =
+      this.foodScore + this.talkScore + this.brightnessScore + this.cleanScore);
+  }
+
+  // satisifyTimer(): boolean {
+  //   return (this.satisified = true);
+  // }
+
+  // async checksatisified() {
+  //   await new Promise((resolve, reject) => {
+  //     setTimeout(() => {
+  //       resolve(true);
+  //     }, 15000);
+  //   });
+  // }
 
   petsData() {
     return {
@@ -109,6 +153,8 @@ export class Pet {
       juvenileSprite: this.juvenileSprite,
       adultSprite: this.adultSprite,
       totalScore: this.totalScore,
+      isHungry: this.isHungry,
+      isGaming: this.isGaming,
     };
   }
 }

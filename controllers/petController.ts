@@ -66,7 +66,8 @@ export class PetController {
       info.isAdult,
       info.petName,
       info.isHungry,
-      info.isGaming
+      info.isGaming,
+      info.satisified
     );
 
     // play
@@ -111,10 +112,8 @@ export class PetController {
       });
     } catch (err) {
       throw err;
-
     }
 
     // res.json(`got it, you said ${response}`);
-
   };
 }
