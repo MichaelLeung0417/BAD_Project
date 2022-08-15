@@ -61,7 +61,10 @@ export class Pet {
   }
 
   satisfactionTimer() {
-    while (this.isHungry == true) {
+    while (this.isHungry) {
+      // if (!this.isHungry) {
+      //   return;
+      // }
       setTimeout(() => {
         notSatisfied();
       }, 15); // 15 seconds
@@ -84,6 +87,16 @@ export class Pet {
   stopGame() {
     return (this.isGaming = false);
   }
+
+  foodScoreModify() {}
+
+  talkScoreModify() {}
+
+  brightnessScoreModify() {}
+
+  cleanScoreModify() {}
+
+  totalScoreModify() {}
 
   petsData() {
     return {

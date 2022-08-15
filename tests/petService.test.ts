@@ -1,7 +1,7 @@
 import Knex from "knex";
+import { PetService } from "../services/petService";
 const knexfile = require("../knexfile");
 const knex = Knex(knexfile["test"]);
-import { PetService } from "../services/petService";
 
 describe("petService", () => {
   let petService: PetService = new PetService(knex);

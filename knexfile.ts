@@ -4,6 +4,7 @@ dotenv.config();
 // Update with your config settings.
 const config: { [key: string]: Knex.Config } = {
   development: {
+    debug: true,
     client: "postgresql",
     connection: {
       host: process.env.DB_HOST || "localhost",
