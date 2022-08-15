@@ -13,7 +13,12 @@ describe("userService", () => {
   });
 
   it("should insert data into db", async () => {
-    const result = await userService.insertUser("testing", "123");
-    console.log(result);
+    await userService.insertUser("tester", "password");
+
+    let expected = await knex.select("*").from("users").where({
+      username: "tester",
+    });
+
+    expect(expected.length).toBe(1);
   });
 });
