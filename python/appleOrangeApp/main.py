@@ -17,6 +17,10 @@ from options import setup_options
 
 app = Sanic("smartchi")
 
+@app.route("/")
+def hello(request):
+    return json({"message": "hello"})
+
 
 
 # model = tf.saved_model.load('./apple-orange-app/saved_model/apple_orange_model')
