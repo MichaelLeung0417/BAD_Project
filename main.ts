@@ -11,12 +11,10 @@ import Knex from "knex";
 import dotenv from "dotenv";
 import { Server as SocketIO } from "socket.io";
 import http from "http";
-
 dotenv.config();
 
 client.connect();
 const main = express();
-
 const server = new http.Server(main);
 
 const io = new SocketIO(server);

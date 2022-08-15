@@ -37,14 +37,8 @@ export class UserController {
 
   register = async (req: express.Request, res: express.Response) => {
     try {
-      let username = req.body.username;
-      let password = req.body.password;
-
-      // OLEVIA: TO STOP 'CANNOT READ PROPERTY OF 'TRIM' ERROR
-      if (typeof username == "string" && typeof password == "string") {
-        username = username.trim();
-        password = password.trim();
-      }
+      let username: string = req.body.username.trim();
+      let password: string = req.body.password.trim();
 
       let userQuery = await this.userService.getAllUser(username);
 

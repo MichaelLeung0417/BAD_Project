@@ -111,9 +111,10 @@ export class PetController {
       });
     } catch (err) {
       throw err;
-      console.log("speechTest not working");
+
     }
 
     // res.json(`got it, you said ${response}`);
+
   };
 }
