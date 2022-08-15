@@ -1,32 +1,27 @@
 ## Todo list
 
-- [ ] ERD, WireFrame
+Michael:
 
-  - [ ] users
-  - [ ] pets
+- [x] Users
 
-- [x] TS Project Template
+  - [x] login
+  - [x] register
 
-- [x] Knex setup
+- [ ] set up game logic
 
-  - [x] installation
-  - [x] create and configure `.env`
-  - [x] create and configure `knexfile.ts`
-  - [x] migration
+  - [ ] cal score
+  - [ ] countdown timer
+  - [ ] pet diffent reaction
+  - [ ] decide pet apperance
 
-  ```bash
-  yarn knex migrate:make init-db
+- [ ] connect backend to frontend
 
-  yarn knex migrate:latest
-  ```
+- [ ] AR(optional)
 
-  - [x] seed
+Oli:
 
-- [x] Express Template
-- [x] Jest setup
-- [x] User
-- [x] Router
-- [x] Controller
-- [x] Service
+- [ ] interaction
 
-- [ ] CI Setup
+Fung:
+
+- [ ] deploy
