@@ -24,11 +24,6 @@ body {
   padding: 10px;
 }
 
-/* .prePage:hover{
-  background-image: url(back.png);
-  height: 20px;
-  width: 20px;
-} */
 
 .game {
   background-image: url(playhome.png);
@@ -55,7 +50,6 @@ body {
   cursor: pointer;
   background-color: Transparent;
   background-repeat: no-repeat;
-  border:3px #836334 solid;
 }
 
 .arButton {
@@ -70,7 +64,6 @@ body {
   background-repeat: no-repeat;
   border: none;
   cursor: pointer;
-  border:3px #836334 solid;
 }
 
 .talkButton {
@@ -84,6 +77,4 @@ body {
   cursor: pointer;
   background-color: Transparent;
   background-repeat: no-repeat;
-  border:3px #836334 solid;
-  background-color:
 }

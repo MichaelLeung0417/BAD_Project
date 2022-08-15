@@ -107,4 +107,17 @@ body {
   height: 50px;
 } */
 
+.addPet{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 10px;
+  height: 10px;
+  background-color: Transparent;
+  background-repeat: no-repeat;
+  border: 0;
+}
 
+.addPet img{
+  
+}
