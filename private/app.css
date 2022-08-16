@@ -3,7 +3,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: 'Russo One', sans-serif;
+  font-family: "Russo One", sans-serif;
 }
 
 .gameSection {
@@ -24,11 +24,9 @@ body {
   padding: 10px;
 }
 
-
 .game {
   background-image: url(playhome.png);
   background-size: cover;
-
 
   /* background-color: grey; */
   width: 100%;
