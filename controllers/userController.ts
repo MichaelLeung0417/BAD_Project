@@ -10,7 +10,7 @@ export class UserController {
       let username = req.body.username;
       let password = req.body.password;
       // @ts-ignore
-      let userId: string;
+      // let userId: string;
 
       let userQuery = await this.userService.getAllUser(username);
       console.log(userQuery);
@@ -19,7 +19,7 @@ export class UserController {
         req.session["isUser"] = true;
         req.session["user"] = userQuery[0].id;
         res.redirect("/bag.html");
-        userId = req.session["user"];
+        // userId = req.session["user"];
         console.log(`${username} logged in`);
         return;
       }

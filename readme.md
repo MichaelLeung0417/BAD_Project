@@ -9,7 +9,7 @@ Michael:
 
 - [ ] set up game logic
 
-  - [ ] cal score
+  - [x] cal score
   - [ ] countdown timer
   - [ ] pet diffent reaction
   - [ ] decide pet apperance
