@@ -23,7 +23,7 @@ function SpeechRecog() {
     const request = await fetch(
       `http://smart-chipy.callings.me/query_string?a=${transcript}`
     );
-    const response = JSON.stringify(request);
+    const response = await request.json();
     console.log(response);
     const sentiment = document.querySelector("#sentiment");
     sentiment.innerHTML = response;

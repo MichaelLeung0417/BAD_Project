@@ -15,6 +15,15 @@
     <input type="text" id="output" />
     <p>Your input is: <span id="sentiment"></span></p>
 
+    <form
+      action="http://LOCALHOST:8080/upload"
+      method="POST"
+      enctype="multipart/form-data"
+    >
+      <input type="file" id="myFile" name="myFile" />
+      <input type="submit" />
+    </form>
+
     <script src="speech.js"></script>
   </body>
 </html>

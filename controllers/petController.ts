@@ -17,7 +17,7 @@ export class PetController {
   showAllPets = async (req: express.Request, res: express.Response) => {
     const userId: number = req.body.userId;
 
-    const allPetInfo = this.petService.getAllPets(userId);
+    const allPetInfo = await this.petService.getAllPets(userId);
 
     res.json(allPetInfo);
   };
@@ -25,7 +25,7 @@ export class PetController {
   getPetInfo = async (req: express.Request, res: express.Response) => {
     const petId: number = req.body.petId;
 
-    const petInfo = this.petService.getPetInfo(petId);
+    const petInfo = await this.petService.getPetInfo(petId);
 
     res.json(petInfo);
   };
@@ -52,7 +52,7 @@ export class PetController {
     const info = await this.petService.getPetInfo(id);
 
     // init state
-    const state = new Pet(
+    let state = new Pet(
       info.id,
       info.talkScore,
       info.brightnessScore,
