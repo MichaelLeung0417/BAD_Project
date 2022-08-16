@@ -1,6 +1,7 @@
 import { PetService } from "../services/petService";
 import express from "express";
 import { Pet } from "../model/models";
+import { form } from "../utilities/middlewares";
 
 export class PetController {
   constructor(private petService: PetService) {}
@@ -134,5 +135,14 @@ export class PetController {
     }
 
     // res.json(`got it, you said ${response}`);
+  };
+
+  // RECEIVE FRUIT IMAGES
+  receiveFruit = async (req: express.Request, res: express.Response) => {
+    form.parse(req, async (err, fields, files) => {
+      console.log(files["file"]["newFilename"]);
+
+      res.json({ filename: files["file"]["newFilename"] });
+    });
   };
 }

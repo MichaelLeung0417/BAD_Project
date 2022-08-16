@@ -13,5 +13,7 @@ export function createPetRoutes(petController: PetController) {
   petRouter.post("/eatUpdate", petController.eat);
   petRouter.post("/cleanUpdate", petController.clean);
   petRouter.post("/playWithPet", petController.playWithPet);
+  petRouter.post("/receiveFruit", petController.receiveFruit);
+
   return petRouter;
 }
