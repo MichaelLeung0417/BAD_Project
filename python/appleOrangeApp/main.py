@@ -5,6 +5,7 @@ from datetime import datetime
 import tensorflow as tf
 import speech
 
+
 from cors import add_cors_headers
 from options import setup_options
 
@@ -40,6 +41,7 @@ def query_string(request):
     try:
   
         toBeProccessed = request.args["a"][0]
+        print(toBeProccessed)
 
         result = speech.predict_sentiment(toBeProccessed)
 
@@ -47,6 +49,20 @@ def query_string(request):
     except Exception as ex:
         print(ex)
         return json({"error":"true"})
+
+# UPLOAD_FOLDER = r'.\uploads'
+# ALLOWED_EXTENSIONS = ['.jpg','.png','.jpeg']
+
+# def allowed_file(filename):
+#     _, ext = os.path.splitext(filename)
+#     return ext.lower() in ALLOWED_EXTENSIONS
+
+# @app.route("/upload", methods=['POST'])
+# async def omo(request):
+#     if request.files.get('myFile', None):
+#         print(request.files.get('file'))
+
+#     return json({"ok":"ok"})
 
 
 
