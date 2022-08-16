@@ -32,6 +32,7 @@ main.use(express.urlencoded());
 main.use(express.json());
 
 main.use(express.static("public"));
+main.use(express.static("petPhoto"));
 
 // function for user
 const userService = new UserService(knex);

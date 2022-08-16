@@ -118,6 +118,13 @@ body {
   border: 0;
 }
 
-.addPet img{
-  
+.egg{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.eggPhoto{
+  width: 50%;
+  height: 50%;
 }
