@@ -41,7 +41,7 @@ function movement() {
         defaultLeft -= 30;
       }
     } else {
-      if (defaultLeft > 350) {
+      if (defaultLeft > 200) {
         defaultLeft -= 30;
       } else {
         defaultLeft += 30;
@@ -57,13 +57,16 @@ function movement() {
         defaultTop -= 30;
       }
     } else {
-      if (defaultTop > 500) {
+      if (defaultTop > 400) {
         defaultTop -= 30;
       } else {
         defaultTop += 30;
       }
     }
   }
+
+  console.log("defaultLeft: ", defaultLeft);
+  console.log("defaulttop: ", defaultTop);
 
   spriteContainer.style["left"] = defaultLeft + "px";
   spriteContainer.style["top"] = defaultTop + "px";
