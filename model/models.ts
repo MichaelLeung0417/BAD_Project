@@ -9,19 +9,24 @@ export class User {
 export class Pet {
   constructor(
     private id: number,
+
     private foodScore: number,
     private talkScore: number,
     private brightnessScore: number,
     private cleanScore: number,
     private playerScore: number,
+    private totalScore: number,
+
     private juvenileSprite: number,
     private adultSprite: number,
     private timeElapsed: number,
-    private totalScore: number,
     private isJuvenile: boolean,
-    private isAdult: boolean,
-    private isHungry: boolean,
+
     private isGaming: boolean,
+
+    private isAdult: boolean,
+
+    private isHungry: boolean,
     private satisfied: boolean,
     private doody: boolean
   ) {}
@@ -69,14 +74,6 @@ export class Pet {
   displayGameState() {
     return this.isGaming;
   }
-
-  // satisfactionTimer() {
-  //   while (this.isHungry) {
-  //     setTimeout(() => {
-  //       notSatisfied();
-  //     }, 15000); // 15 seconds
-  //   }
-  // }
 
   eat() {
     return (this.isHungry = false);
@@ -139,28 +136,52 @@ export class Pet {
     return this.isAdult;
   }
 
-  async checksatisfied() {
-    return new Promise<boolean>(function (resolve, reject) {
-      setTimeout(function () {
-        reject(false);
-      }, 15000);
-      resolve(true);
-    });
-  }
+  // async checksatisfied() {
+  //   return new Promise<boolean>(function (resolve, reject) {
+  //     setTimeout(function () {
+  //       reject(false);
+  //     }, 15000);
+  //     resolve(true);
+  //   });
+  // }
+
+  // async changeMood() {
+  //   return new Promise<boolean>(function (resolve, reject) {
+  //     setTimeout(function () {
+  //       reject();
+  //     }, 15000);
+  //     resolve(true);
+  //   }).then(function () {
+  //     this.satisfied = true;
+  //   });
+  // }
+
+  // satisfactionTimer() {
+  //   while (this.isHungry) {
+  //     setTimeout(() => {
+  //       notSatisfied();
+  //     }, 15000); // 15 seconds
+  //   }
+  // }
 
   petsData() {
     return {
       id: this.id,
+
       foodScore: this.foodScore,
       talkScore: this.talkScore,
       brightnessScore: this.brightnessScore,
       cleanScore: this.cleanScore,
       playerScore: this.playerScore,
+      totalScore: this.totalScore,
+
       juvenileSprite: this.juvenileSprite,
       adultSprite: this.adultSprite,
-      totalScore: this.totalScore,
-      isHungry: this.isHungry,
       isGaming: this.isGaming,
+
+      isHungry: this.isHungry,
+      doody: this.doody,
+      satisfied: this.satisfied,
     };
   }
 }

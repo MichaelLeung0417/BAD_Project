@@ -11,19 +11,20 @@ import Knex from "knex";
 import dotenv from "dotenv";
 import { Server as SocketIO } from "socket.io";
 import http from "http";
+
 dotenv.config();
-
 client.connect();
-const main = express();
-const server = new http.Server(main);
 
+const main = express();
+
+const server = new http.Server(main);
 const io = new SocketIO(server);
 
 io.on("connection", async function (socket) {
   console.log(`${socket.id}: Sever connect to client`);
   const req = socket.request as express.Request;
 
-  if (!req.session["isUser"] || req.session["playing-user"] == null) {
+  if (!req.session["isUser"] || req.session["user"] == null) {
     socket.disconnect();
     return;
   }
