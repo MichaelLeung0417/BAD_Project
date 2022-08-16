@@ -12,11 +12,11 @@ export async function up(knex: Knex): Promise<void> {
       table.integer("playScore");
       table.integer("juvenileSprite");
       table.integer("adultSprite");
-      table.integer("timeElapsed");
+      table.integer("timeElapsed"); //shoould be counted in minutes
       table.integer("totalScore");
       table.boolean("isJuvenile");
       table.boolean("isAdult");
-      table.timestamps(false, true);
+      table.timestamps(false, true); //should be true, true
     });
   }
 }
