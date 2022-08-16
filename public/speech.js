@@ -21,7 +21,7 @@ function SpeechRecog() {
     output.value = transcript;
 
     const request = await fetch(
-      `https://smart-chipy.callings.me/query_string?a=${transcript}`
+      `http://127.0.0.1:8080/query_string?a=${transcript}`
     );
     const response = await request.json();
     console.log(response);
