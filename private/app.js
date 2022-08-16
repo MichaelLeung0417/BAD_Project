@@ -74,44 +74,44 @@ setInterval(spriteChange, 1000);
 
 // submit to the server via ajax
 
-// document
-//   .querySelector(".playerButton")
-//   .addEventListener("submit", async function (event) {
-//     event.preventDefault();
+document
+  .querySelector(".playerButton")
+  .addEventListener("submit", async function (event) {
+    event.preventDefault();
 
-//     const form = event.target;
-//     const res = await fetch("/playWithPet", {
-//       method: "POST",
-//     });
-//     const result = await res.json();
-//     console.log(result);
-//   });
+    const form = event.target;
+    const res = await fetch("/playWithPet", {
+      method: "POST",
+    });
+    const result = await res.json();
+    console.log(result);
+  });
 
-// document
-//   .querySelector(".eat")
-//   .addEventListener("submit", async function (event) {
-//     event.preventDefault();
+document
+  .querySelector(".eatButton")
+  .addEventListener("submit", async function (event) {
+    event.preventDefault();
 
-//     const form = event.target;
-//     const res = await fetch("/eatUpdate", {
-//       method: "POST",
-//     });
-//     const result = await res.json();
-//     console.log(result);
-//   });
+    const form = event.target;
+    const res = await fetch("/eatUpdate", {
+      method: "POST",
+    });
+    const result = await res.json();
+    console.log(result);
+  });
 
-// document
-//   .querySelector(".clean")
-//   .addEventListener("submit", async function (event) {
-//     event.preventDefault();
+document
+  .querySelector(".arButton")
+  .addEventListener("submit", async function (event) {
+    event.preventDefault();
 
-//     const form = event.target;
-//     const res = await fetch("/cleanUpdate", {
-//       method: "POST",
-//     });
-//     const result = await res.json();
-//     console.log(result);
-//   });
+    const form = event.target;
+    const res = await fetch("/cleanUpdate", {
+      method: "POST",
+    });
+    const result = await res.json();
+    console.log(result);
+  });
 
 // document
 //   .querySelector(".talk")
