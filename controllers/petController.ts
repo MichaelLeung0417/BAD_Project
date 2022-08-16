@@ -67,7 +67,8 @@ export class PetController {
       info.petName,
       info.isHungry,
       info.isGaming,
-      info.satisified
+      info.satisfied,
+      info.doody
     );
 
     // play

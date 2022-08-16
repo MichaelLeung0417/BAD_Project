@@ -22,7 +22,8 @@ export class Pet {
     private isAdult: boolean,
     private isHungry: boolean,
     private isGaming: boolean,
-    private satisfied: boolean
+    private satisfied: boolean,
+    private doody: boolean
   ) {}
 
   returnState() {
@@ -65,7 +66,7 @@ export class Pet {
     }, 30000); // every 30 mins
   }
 
-  public displayGameState() {
+  displayGameState() {
     return this.isGaming;
   }
 
@@ -130,22 +131,21 @@ export class Pet {
       this.foodScore + this.talkScore + this.brightnessScore + this.cleanScore);
   }
 
-  // checksatisified = new Promise<boolean>(function (resolve, reject) {
-  //   if (satisfied) {
-  //     reject(false);
-  //     return;
-  //   }
-  //   resolve(true);
-  // });
-
-  // async countDown() {
-  //   setTimeout(function () {
-  //     await checksatisified;
-  //   }, 15000);
-  // }
+  checkDoody() {
+    return this.doody;
+  }
 
   checkAdult() {
     return this.isAdult;
+  }
+
+  async checksatisfied() {
+    return new Promise<boolean>(function (resolve, reject) {
+      setTimeout(function () {
+        reject(false);
+      }, 15000);
+      resolve(true);
+    });
   }
 
   petsData() {
