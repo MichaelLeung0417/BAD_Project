@@ -4,7 +4,7 @@ from pathlib import os
 from datetime import datetime
 import tensorflow as tf
 import speech
-
+import apple_orange
 
 from cors import add_cors_headers
 from options import setup_options
@@ -49,6 +49,16 @@ def query_string(request):
     except Exception as ex:
         print(ex)
         return json({"error":"true"})
+
+@app.route("/analysePhoto")
+def analyzePhoto(request):
+
+    print("this ran")
+    fileName = request.args["a"][0]
+    img_url = "../../uploads/" + fileName
+    result = apple_orange.analyseFruit(img_url)
+    return json({"result": result})
+
 
 # UPLOAD_FOLDER = r'.\uploads'
 # ALLOWED_EXTENSIONS = ['.jpg','.png','.jpeg']

@@ -61,5 +61,11 @@ const submitPhoto = document
     const response = await saveFile.json();
     console.log(response["filename"]);
 
-    // const analysePhoto = await fetch("/")
+    const analysePhoto = await fetch(
+      `http://127.0.0.1:8080/analysePhoto?a=${response["filename"]}`
+    );
+
+    const whatFruit = await analysePhoto.json();
+
+    console.log(whatFruit["result"]);
   });

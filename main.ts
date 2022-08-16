@@ -33,6 +33,7 @@ main.use(express.json());
 
 main.use(express.static("public"));
 main.use(express.static("petPhoto"));
+main.use(express.static("uploads"));
 
 // function for user
 const userService = new UserService(knex);

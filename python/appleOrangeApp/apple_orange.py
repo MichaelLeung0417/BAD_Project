@@ -60,17 +60,33 @@ apple_orange_model = tf.keras.models.load_model('saved_model/apple_orange_model'
 
 img_url = '../uploads/image6.png'
 
-img = tf.keras.utils.load_img(
-    img_url, target_size=(img_height, img_width)
-)
-img_array = tf.keras.utils.img_to_array(img)
-img_array = tf.expand_dims(img_array, 0) # Create a batch
+# img = tf.keras.utils.load_img(
+#     img_url, target_size=(img_height, img_width)
+# )
+# img_array = tf.keras.utils.img_to_array(img)
+# img_array = tf.expand_dims(img_array, 0) # Create a batch
 
-predictions = apple_orange_model.predict(img_array)
-score = tf.nn.softmax(predictions[0])
+# predictions = apple_orange_model.predict(img_array)
+# score = tf.nn.softmax(predictions[0])
 
-print(
-    "This image most likely belongs to {} with a {:.2f} percent confidence."
-    .format(class_names[np.argmax(score)], 100 * np.max(score))
-)
+
+
+def analyseFruit(img_url):
+  img = tf.keras.utils.load_img(img_url, target_size=(img_height, img_width))
+  img_array = tf.keras.utils.img_to_array(img)
+  img_array = tf.expand_dims(img_array, 0) # Create a batch
+  predictions = apple_orange_model.predict(img_array)
+  score = tf.nn.softmax(predictions[0])
+  return class_names[np.argmax(score)]
+
+
+
+
+# if __name__ == "__main__":
+#   print(
+#     "This image most likely belongs to {} with a {:.2f} percent confidence."
+#     .format(class_names[np.argmax(score)], 100 * np.max(score))
+# )
+
+
 # %%
