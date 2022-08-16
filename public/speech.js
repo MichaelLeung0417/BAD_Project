@@ -21,9 +21,9 @@ function SpeechRecog() {
     output.value = transcript;
 
     const request = await fetch(
-      `http://smart-chipy.callings.me/query_string?a=${transcript}`
+      `https://smart-chipy.callings.me/query_string?a=${transcript}`
     );
-    const response = JSON.stringify(request);
+    const response = await request.json();
     console.log(response);
     const sentiment = document.querySelector("#sentiment");
     sentiment.innerHTML = response;
@@ -43,13 +43,13 @@ function SpeechRecog() {
   recognition.start();
 }
 
-// async function python() {
-//   const something = "something";
-//   const request = await fetch(
-//     `http://LOCALHOST:8080/query_string?content=${something}`
-//   );
-//   const response = await request.json();
-//   console.log(response);
-// }
+async function python() {
+  const something = "something";
+  const request = await fetch(
+    `https://smart-chipy.callings.me/query_string?content=${something}`
+  );
+  const response = await request.json();
+  console.log(response);
+}
 
-// python();
+python();
