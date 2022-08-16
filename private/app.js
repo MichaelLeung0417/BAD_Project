@@ -65,9 +65,6 @@ function movement() {
     }
   }
 
-  console.log("defaultLeft: ", defaultLeft);
-  console.log("defaulttop: ", defaultTop);
-
   spriteContainer.style["left"] = defaultLeft + "px";
   spriteContainer.style["top"] = defaultTop + "px";
 }
