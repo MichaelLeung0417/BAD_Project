@@ -23,7 +23,7 @@ function SpeechRecog() {
     const request = await fetch(
       `HTTP://LOCALHOST:8080/query_string?a=${transcript}`
     );
-    const response = await request.json();
+    const response = JSON.stringify(request);
     console.log(response);
     const sentiment = document.querySelector("#sentiment");
     sentiment.innerHTML = response;
