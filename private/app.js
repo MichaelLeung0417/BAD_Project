@@ -87,18 +87,20 @@ document
     console.log(result);
   });
 
-document
-  .querySelector(".eatButton")
-  .addEventListener("submit", async function (event) {
-    event.preventDefault();
+// EAT BUTTON
+const addPhotoPopup = document.querySelector(".add-photo-popup");
 
-    const form = event.target;
-    const res = await fetch("/eatUpdate", {
-      method: "POST",
-    });
-    const result = await res.json();
-    console.log(result);
-  });
+document.querySelector(".eatButton").addEventListener("click", function () {
+  addPhotoPopup.classList.remove("hidden");
+});
+document.querySelector(".game").addEventListener("click", function () {
+  if (addPhotoPopup.classList[1] == "hidden") {
+    return;
+  }
+  addPhotoPopup.classList.add("hidden");
+});
+
+// AR BUTTON
 
 document
   .querySelector(".arButton")

@@ -21,8 +21,14 @@
         <div class="sprite-container">
           <img
             id="sprite"
-            src="http://smart-chi.callings.me/Aldult/Aldult3.png"
+            src="http://smart-chi.callings.me/Aldult/Aldult4.png"
           />
+        </div>
+        <div class="add-photo-popup hidden">
+          <form id="sendPhoto">
+            <input type="file" id="myFile" name="myFile" />
+            <input type="submit" />
+          </form>
         </div>
       </div>
 
@@ -30,9 +36,8 @@
         <form class="playerButton" action="/playWithPet" method="POST">
           <input type="submit" value="" />
         </form>
-        <form class="eatButton" action="/eatUpdate" method="POST">
-          <input type="submit" value="" />
-        </form>
+        <button class="eatButton"></button>
+
         <form class="arButton" action="/cleanUpdate" method="POST">
           <input type="submit" value="" />
         </form>
@@ -44,7 +49,7 @@
         ></button>
       </div>
     </section>
-    <div class="hidden">
+    <div class="DO-NOT-DELETE hidden">
       <p>
         <span id="action"></span>
       </p>
