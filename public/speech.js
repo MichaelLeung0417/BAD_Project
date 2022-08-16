@@ -62,7 +62,7 @@ const submitPhoto = document
     console.log(response["filename"]);
 
     const analysePhoto = await fetch(
-      `http://127.0.0.1:8080/analysePhoto?a=${response["filename"]}`
+      `https://smart-chipy.callings.me/analysePhoto?a=${response["filename"]}`
     );
 
     const whatFruit = await analysePhoto.json();
