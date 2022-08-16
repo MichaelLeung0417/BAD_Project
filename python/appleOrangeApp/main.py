@@ -36,18 +36,18 @@ def hello(request):
 #     return json({ "result": request.body })
 
 
-# @app.route("/query_string")
-# def query_string(request):
-#     try:
+@app.route("/query_string")
+def query_string(request):
+    try:
   
-#         toBeProccessed = request.args["a"][0]
+        toBeProccessed = request.args["a"][0]
 
-#         result = speech.predict_sentiment(toBeProccessed)
+        result = speech.predict_sentiment(toBeProccessed)
 
-#         return json(result)
-#     except Exception as ex:
-#         print(ex)
-#         return json({"error":"true"})
+        return json(result)
+    except Exception as ex:
+        print(ex)
+        return json({"error":"true"})
 
 # UPLOAD_FOLDER = r'.\uploads'
 # ALLOWED_EXTENSIONS = ['.jpg','.png','.jpeg']
