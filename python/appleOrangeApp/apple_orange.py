@@ -80,6 +80,7 @@ def analyseFruit(img_url):
   return class_names[np.argmax(score)]
 
 
+print(analyseFruit(img_url))
 
 
 # if __name__ == "__main__":
