@@ -8,7 +8,7 @@ let playScore;
 let totalScore;
 let juvenileSprite;
 let adultSprite;
-let isAudult;
+let isAdult;
 
 // ANIMATION
 
@@ -87,7 +87,11 @@ document
       method: "POST",
     });
     const result = await res.json();
-    console.log(result);
+    document.getElementById("content").innerHTML = result;
+
+    setTimeout(() => {
+      document.getElementById("content").innerHTML = "";
+    }, 2000);
   });
 
 document
@@ -100,7 +104,11 @@ document
       method: "POST",
     });
     const result = await res.json();
-    console.log(result);
+    document.getElementById("content").innerHTML = result;
+
+    setTimeout(() => {
+      document.getElementById("content").innerHTML = "";
+    }, 2000);
   });
 
 document
@@ -113,7 +121,11 @@ document
       method: "POST",
     });
     const result = await res.json();
-    console.log(result);
+    document.getElementById("content").innerHTML = result;
+
+    setTimeout(() => {
+      document.getElementById("content").innerHTML = "";
+    }, 2000);
   });
 
 // document
