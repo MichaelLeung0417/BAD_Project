@@ -17,7 +17,7 @@ export class UserController {
         req.session["isUser"] = true;
         req.session["user"] = userQuery[0].id;
         res.redirect("/bag.html");
-        console.log(`${username} logged in`);
+        console.log(`User:${username} ID:${req.session["user"]} has logged in`);
         return;
       }
       console.log(`${username} failed to login`);
@@ -39,7 +39,7 @@ export class UserController {
 
       let userQuery = await this.userService.getAllUser(username);
 
-      if (userQuery !== undefined) {
+      if (userQuery.length > 0) {
         res.redirect("/?error=重覆username");
         return;
       }

@@ -7,7 +7,7 @@ export class PetController {
 
   addPet = async (req: express.Request, res: express.Response) => {
     const petName: string = req.body.petname;
-    const userId: number = req.session["userId"];
+    const userId: number = req.session["users"];
 
     this.petService.addPet(petName, userId);
 
@@ -87,6 +87,10 @@ export class PetController {
   // TURN OFF GAME
 
   stopGame = async (req: express.Request, res: express.Response) => {};
+
+  eat = async (req: express.Request, res: express.Response) => {};
+
+  ar = async (req: express.Request, res: express.Response) => {};
 
   // SPEECH
   speechTest = async (req: express.Request, res: express.Response) => {
