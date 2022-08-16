@@ -41,6 +41,7 @@ def query_string(request):
     try:
   
         toBeProccessed = request.args["a"][0]
+        print(toBeProccessed)
 
         result = speech.predict_sentiment(toBeProccessed)
 
