@@ -43,6 +43,27 @@ function SpeechRecog() {
   recognition.start();
 }
 
+const submitPhoto = document
+  .querySelector("#sendPhoto")
+  .addEventListener("submit", async function (event) {
+    event.preventDefault();
+
+    const input = document.querySelector('input[type="file"]');
+
+    var data = new FormData();
+    data.append("file", input.files[0]);
+
+    const saveFile = await fetch("/receiveFruit", {
+      method: "POST",
+      body: data,
+    });
+
+    const response = await saveFile.json();
+    console.log(response["filename"]);
+
+    // const analysePhoto = await fetch("/")
+  });
+
 // async function python() {
 //   const something = "something";
 //   const request = await fetch(
