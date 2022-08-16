@@ -21,7 +21,7 @@ function SpeechRecog() {
     output.value = transcript;
 
     const request = await fetch(
-      `http://LOCALHOST:8080/query_string?a=${transcript}`
+      `HTTP://LOCALHOST:8080/query_string?a=${transcript}`
     );
     const response = await request.json();
     console.log(response);
