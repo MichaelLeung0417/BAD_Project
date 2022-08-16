@@ -63,14 +63,3 @@ const submitPhoto = document
 
     // const analysePhoto = await fetch("/")
   });
-
-// async function python() {
-//   const something = "something";
-//   const request = await fetch(
-//     `http://LOCALHOST:8080/query_string?content=${something}`
-//   );
-//   const response = await request.json();
-//   console.log(response);
-// }
-
-// python();

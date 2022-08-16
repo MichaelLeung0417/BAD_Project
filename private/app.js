@@ -1,16 +1,15 @@
-// const socket = io.connect();
-
-// document.querySelector(".eatButton").addEventListener("click", () => {
-//   socket.emit("eat", true);
-// });
-
-// document.querySelector(".arButton").addEventListener("click", () => {
-//   socket.emit("AR", true);
-// });
-
-// document.querySelector(".talkButton").addEventListener("click", () => {
-//   socket.emit("talk", true);
-// });
+<<<<<<< HEAD
+let petName;
+let mood;
+let foodScore;
+let talkScore;
+let brightnessScore;
+let cleanScore;
+let playScore;
+let totalScore;
+let juvenileSprite;
+let adultSprite;
+let isAudult;
 
 // ANIMATION
 
@@ -73,3 +72,60 @@ function movement() {
 
 setInterval(movement, 500);
 setInterval(spriteChange, 1000);
+
+// submit to the server via ajax
+
+document
+  .querySelector(".eat")
+  .addEventListener("submit", async function (event) {
+    event.preventDefault();
+
+    // Serialize the Form afterwards
+    const form = event.target;
+    const formObject = {};
+    const res = await fetch("/eatUpdate", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formObject),
+    });
+    const result = await res.json();
+  });
+
+document
+  .querySelector(".ar")
+  .addEventListener("submit", async function (event) {
+    event.preventDefault();
+
+    // Serialize the Form afterwards
+    const form = event.target;
+    const formObject = {};
+    const res = await fetch("/arUpdate", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formObject),
+    });
+    const result = await res.json();
+  });
+
+document
+  .querySelector(".talk")
+  .addEventListener("submit", async function (event) {
+    event.preventDefault();
+
+    // Serialize the Form afterwards
+    const form = event.target;
+    const formObject = {};
+    const res = await fetch("/talkUpdate", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formObject),
+    });
+    const result = await res.json();
+  });
+

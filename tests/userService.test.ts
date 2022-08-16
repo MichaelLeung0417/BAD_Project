@@ -2,25 +2,21 @@ import Knex from "knex";
 import { UserService } from "../services/userService";
 const knexfile = require("../knexfile");
 const knex = Knex(knexfile["test"]);
+let userService = new UserService(knex);
 
 beforeEach(() => {
-  let userService: UserService = new UserService(knex);
+  userService = new UserService(knex);
+});
 
-  describe("userService", () => {
-    it("should get data from users", async () => {
-      const usersData = await userService.getAllUser("1");
+it("should get data from users", async () => {
+  const usersData = await userService.getAllUser("1");
+  expect(usersData.length).toBe(0);
+});
 
-      console.log(usersData);
-    });
-
-    it("should insert data into db", async () => {
-      await userService.insertUser("tester", "password");
-
-      let expected = await knex.select("*").from("users").where({
-        username: "tester",
-      });
-
-      expect(expected.length).toBe(1);
-    });
+it("should insert data into db", async () => {
+  await userService.insertUser("630", "password");
+  let expected = await knex.select("*").from("users").where({
+    username: "630",
   });
+  expect(expected.length).toBe(1);
 });

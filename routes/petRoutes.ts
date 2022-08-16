@@ -10,7 +10,10 @@ export function createPetRoutes(petController: PetController) {
   petRouter.get("/play/:id", petController.play);
   petRouter.get("/stopGame/:id", petController.stopGame);
   petRouter.post("/speechTest", petController.speechTest);
+
   petRouter.post("/receiveFruit", petController.receiveFruit);
+
+  petRouter.post("/eat", petController.eat);
 
   return petRouter;
 }
