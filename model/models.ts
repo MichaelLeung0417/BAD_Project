@@ -1,5 +1,3 @@
-import { doody } from "../utilities/petFunctions";
-
 export class User {
   id: number;
   username: string;
@@ -30,10 +28,6 @@ export class Pet {
     private satisfied: boolean,
     private doody: boolean
   ) {}
-
-  returnState() {
-    return this;
-  }
 
   addToGeneralTime() {
     while (this.timeElapsed < 3600) {
@@ -77,10 +71,6 @@ export class Pet {
 
   eat() {
     return (this.isHungry = false);
-  }
-
-  doodyTimer() {
-    setInterval(() => doody(), 5); // 5 seconds
   }
 
   turnOn() {
@@ -128,43 +118,7 @@ export class Pet {
       this.foodScore + this.talkScore + this.brightnessScore + this.cleanScore);
   }
 
-  checkDoody() {
-    return this.doody;
-  }
-
-  checkAdult() {
-    return this.isAdult;
-  }
-
-  // async checksatisfied() {
-  //   return new Promise<boolean>(function (resolve, reject) {
-  //     setTimeout(function () {
-  //       reject(false);
-  //     }, 15000);
-  //     resolve(true);
-  //   });
-  // }
-
-  // async changeMood() {
-  //   return new Promise<boolean>(function (resolve, reject) {
-  //     setTimeout(function () {
-  //       reject();
-  //     }, 15000);
-  //     resolve(true);
-  //   }).then(function () {
-  //     this.satisfied = true;
-  //   });
-  // }
-
-  // satisfactionTimer() {
-  //   while (this.isHungry) {
-  //     setTimeout(() => {
-  //       notSatisfied();
-  //     }, 15000); // 15 seconds
-  //   }
-  // }
-
-  petsData() {
+  petsInfo() {
     return {
       id: this.id,
 
@@ -178,6 +132,7 @@ export class Pet {
       juvenileSprite: this.juvenileSprite,
       adultSprite: this.adultSprite,
       isGaming: this.isGaming,
+      isAdult: this.isAdult,
 
       isHungry: this.isHungry,
       doody: this.doody,

@@ -12,6 +12,7 @@
 //   socket.emit("talk", true);
 // });
 
+
 // ANIMATION
 
 const spriteContainer = document.querySelector(".sprite-container");
@@ -73,3 +74,4 @@ function movement() {
 
 setInterval(movement, 500);
 setInterval(spriteChange, 1000);
+>>>>>>> 94a24449c8f3652dc25c369b5c2816c8c46159ba
