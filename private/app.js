@@ -153,8 +153,6 @@ function SpeechRecog() {
     );
     const response = await request.json();
     console.log(response);
-    const sentiment = document.querySelector("#sentiment");
-    sentiment.innerHTML = response;
   };
 
   // start recognition
