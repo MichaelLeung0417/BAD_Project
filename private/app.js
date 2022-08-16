@@ -8,7 +8,7 @@ let playScore;
 let totalScore;
 let juvenileSprite;
 let adultSprite;
-let isAudult;
+let isAdult;
 
 // ANIMATION
 
@@ -84,7 +84,11 @@ document
       method: "POST",
     });
     const result = await res.json();
-    console.log(result);
+    document.getElementById("content").innerHTML = result;
+
+    setTimeout(() => {
+      document.getElementById("content").innerHTML = "";
+    }, 2000);
   });
 
 // EAT BUTTON
@@ -102,6 +106,17 @@ document.querySelector(".game").addEventListener("click", function () {
 
 // AR BUTTON
 
+const form = event.target;
+const res = await fetch("/eatUpdate", {
+  method: "POST",
+});
+const result = await res.json();
+document.getElementById("content").innerHTML = result;
+
+setTimeout(() => {
+  document.getElementById("content").innerHTML = "";
+}, 2000);
+
 document
   .querySelector(".arButton")
   .addEventListener("submit", async function (event) {
@@ -112,7 +127,11 @@ document
       method: "POST",
     });
     const result = await res.json();
-    console.log(result);
+    document.getElementById("content").innerHTML = result;
+
+    setTimeout(() => {
+      document.getElementById("content").innerHTML = "";
+    }, 2000);
   });
 
 // document

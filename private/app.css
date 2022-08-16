@@ -71,6 +71,17 @@ body {
 .options {
   display: flex;
   justify-content: space-evenly;
+  position: relative;
+}
+
+.notification {
+  position: absolute;
+  top: -70px;
+  right: 0;
+  width: 250px;
+  height: 50px;
+  background-color: #000;
+  border-radius: 20px 20px 0 20px;
 }
 
 .playerButton {

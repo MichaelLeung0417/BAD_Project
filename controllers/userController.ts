@@ -11,7 +11,6 @@ export class UserController {
       let password = req.body.password;
 
       let userQuery = await this.userService.getAllUser(username);
-      console.log(userQuery);
 
       if (await checkPassword(password, userQuery[0].hashPassword)) {
         req.session["isUser"] = true;
@@ -23,7 +22,7 @@ export class UserController {
       console.log(`${username} failed to login`);
     } catch (err) {
       console.error(err);
-      res.redirect("/");
+      res.json("帳號或密碼錯誤！");
       return;
     }
 
@@ -34,13 +33,13 @@ export class UserController {
 
   register = async (req: express.Request, res: express.Response) => {
     try {
-      let username: string = req.body.username.trim();
-      let password: string = req.body.password.trim();
+      let username: string = await req.body.username.trim();
+      let password: string = await req.body.password.trim();
 
       let userQuery = await this.userService.getAllUser(username);
 
       if (userQuery.length > 0) {
-        res.redirect("/?error=重覆username");
+        res.json("重覆username！");
         return;
       }
       try {
@@ -48,7 +47,7 @@ export class UserController {
         res.redirect("/");
       } catch (err) {
         console.error(err);
-        res.status(500).send("this");
+        res.status(500).send("Internal Server Error");
         return;
       }
     } catch (err) {
