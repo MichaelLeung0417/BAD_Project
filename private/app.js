@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 let petName;
 let mood;
 let foodScore;
@@ -128,4 +127,3 @@ document
     });
     const result = await res.json();
   });
-
