@@ -113,15 +113,77 @@ document
     console.log(result);
   });
 
-document
-  .querySelector(".talk")
-  .addEventListener("submit", async function (event) {
-    event.preventDefault();
+// document
+//   .querySelector(".talk")
+//   .addEventListener("submit", async function (event) {
+//     event.preventDefault();
 
-    const form = event.target;
-    const res = await fetch("/speechTest", {
-      method: "POST",
-    });
-    const result = await res.json();
-    console.log(result);
-  });
+//     const form = event.target;
+//     const res = await fetch("/speechTest", {
+//       method: "POST",
+//     });
+//     const result = await res.json();
+//     console.log(result);
+//   });
+
+// SPEECH FUNCTION
+
+function SpeechRecog() {
+  var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
+  var recognition = new SpeechRecognition();
+
+  // This runs when the speech recognition service starts
+  recognition.onstart = function () {
+    console.log("please speak");
+  };
+
+  recognition.onspeechend = function () {
+    console.log("recording stopped");
+    recognition.stop();
+  };
+
+  // This runs when the speech recognition service returns result
+  recognition.onresult = async function (event) {
+    var transcript = event.results[0][0].transcript;
+    var confidence = event.results[0][0].confidence;
+    output.value = transcript;
+
+    const request = await fetch(
+      `https://smart-chipy.callings.me/query_string?a=${transcript}`
+    );
+    const response = await request.json();
+    console.log(response);
+    const sentiment = document.querySelector("#sentiment");
+    sentiment.innerHTML = response;
+  };
+
+  // start recognition
+  recognition.start();
+}
+
+// const submitPhoto = document
+//   .querySelector("#sendPhoto")
+//   .addEventListener("submit", async function (event) {
+//     event.preventDefault();
+
+//     const input = document.querySelector('input[type="file"]');
+
+//     var data = new FormData();
+//     data.append("file", input.files[0]);
+
+//     const saveFile = await fetch("/receiveFruit", {
+//       method: "POST",
+//       body: data,
+//     });
+
+//     const response = await saveFile.json();
+//     console.log(response["filename"]);
+
+//     const analysePhoto = await fetch(
+//       `https://smart-chipy.callings.me/analysePhoto?a=${response["filename"]}`
+//     );
+
+//     const whatFruit = await analysePhoto.json();
+
+//     console.log(whatFruit["result"]);
+//   });

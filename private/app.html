@@ -19,7 +19,10 @@
 
       <div class="game">
         <div class="sprite-container">
-          <img id="sprite" src="http://smart-chi.callings.me/Aldult/Aldult3.png" />
+          <img
+            id="sprite"
+            src="http://smart-chi.callings.me/Aldult/Aldult3.png"
+          />
         </div>
       </div>
 
@@ -33,9 +36,12 @@
         <form class="arButton" action="/cleanUpdate" method="POST">
           <input type="submit" value="" />
         </form>
-        <form class="talkButton" action="/speechTest" method="POST">
-          <input type="submit" value="" />
-        </form>
+        <button
+          class="talkButton"
+          action="/speechTest"
+          method="POST"
+          onclick="SpeechRecog()"
+        ></button>
       </div>
     </section>
 
