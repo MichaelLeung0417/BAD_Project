@@ -6,6 +6,7 @@ export function createUserRoutes(userController: UserController) {
   userRoutes.post("/login", userController.login);
   userRoutes.post("/register", userController.register);
   userRoutes.post("/logout", userController.logout);
+  userRoutes.get("/getUserInfo", userController.getUsername);
 
   return userRoutes;
 }

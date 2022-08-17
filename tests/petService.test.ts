@@ -27,9 +27,10 @@ describe("petService", () => {
   });
 
   // PASSED
-  it("should retrieve a list of pets", async () => {
+  it("should retrieve a list of names and it's id of pets", async () => {
     const results = await petService.getAllPets(1);
-    expect(results.length).toBeGreaterThan(0);
+    // expect(results.length).toBeGreaterThan(0);
+    console.log(results);
   });
 
   // PASSED

@@ -16,7 +16,7 @@ export class PetService {
     for (let pet in results) {
       const petId = results[pet].pet_id;
       const petInfo = await this.knex
-        .select("*")
+        .select("petName", "id")
         .from("pets")
         .where("id", petId);
       listOfPetInfo.push(petInfo[0]);

@@ -1,14 +1,17 @@
 import { UserService } from "../services/userService";
 import express from "express";
 import { checkPassword } from "../utilities/hash";
+import { rmSync } from "fs";
 
 export class UserController {
   constructor(private userService: UserService) {}
 
+  // LOGIN
+
   login = async (req: express.Request, res: express.Response) => {
     try {
-      let username: string = await req.body.username;
-      let password: string = await req.body.password;
+      let username: string = await req.body.username.trim();
+      let password: string = await req.body.password.trim();
 
       let userQuery = await this.userService.getAllUser(username);
 
@@ -31,6 +34,8 @@ export class UserController {
       return;
     }
   };
+
+  // REGISTER
 
   register = async (req: express.Request, res: express.Response) => {
     try {
@@ -57,9 +62,19 @@ export class UserController {
     }
   };
 
+  // LOGOUT
+
   logout = async (req: express.Request, res: express.Response) => {
     req.session["isUser"] = false;
     delete req.session["user"];
     res.redirect("/");
+  };
+
+  // GET USERNAME
+  getUsername = async (req: express.Request, res: express.Response) => {
+    const userId = parseInt(req.session["user"]);
+
+    const username = await this.userService.getUserNameById(userId);
+    res.json({ username: username });
   };
 }
