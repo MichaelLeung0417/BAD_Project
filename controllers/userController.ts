@@ -1,7 +1,6 @@
 import { UserService } from "../services/userService";
 import express from "express";
 import { checkPassword } from "../utilities/hash";
-import { rmSync } from "fs";
 
 export class UserController {
   constructor(private userService: UserService) {}
