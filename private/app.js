@@ -150,7 +150,7 @@ async function updateAdultPet() {
     },
     body: JSON.stringify(formObject),
   });
-  const adultPetApperance = await res.json({});
+  const adultPetApperance = await res.json();
   sprite.innerHTML = `<img src="https://smart-chi.callings.me/Aldult/${adultPetApperance.aldultSprite}.png" />`;
 }
 

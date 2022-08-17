@@ -201,18 +201,18 @@ export class PetController {
 
     if (foodScore < 5) {
       if (talkScore < 5) {
-        aldultSprite = "aldult1";
+        aldultSprite = "Aldult1";
       } else {
-        aldultSprite = "aldult2";
+        aldultSprite = "Aldult2";
       }
     } else {
       if (cleanScore < 5) {
-        aldultSprite = "aldult3";
+        aldultSprite = "Aldult3";
       } else {
         if (playScore < 5) {
-          aldultSprite = "aldult4";
+          aldultSprite = "Aldult4";
         } else {
-          aldultSprite = "aldult5";
+          aldultSprite = "Aldult5";
         }
       }
     }
