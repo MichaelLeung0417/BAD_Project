@@ -1,6 +1,6 @@
 import express from "express";
 import expressSession from "express-session";
-import { client, isLogin } from "./utilities/middlewares";
+import { client } from "./utilities/middlewares";
 import { createUserRoutes } from "./routes/userRoutes";
 import { createPetRoutes } from "./routes/petRoutes";
 import { PetController } from "./controllers/petController";
