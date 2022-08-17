@@ -7,8 +7,8 @@ export class UserController {
 
   login = async (req: express.Request, res: express.Response) => {
     try {
-      let username = req.body.username;
-      let password = req.body.password;
+      let username: string = await req.body.username;
+      let password: string = await req.body.password;
 
       let userQuery = await this.userService.getAllUser(username);
 
@@ -19,10 +19,10 @@ export class UserController {
         console.log(`User:${username} ID:${req.session["user"]} has logged in`);
         return;
       }
-      console.log(`${username} failed to login`);
+      res.json("帳號或密碼錯誤！");
     } catch (err) {
       console.error(err);
-      res.json("帳號或密碼錯誤！");
+      res.redirect("/");
       return;
     }
 
@@ -39,7 +39,7 @@ export class UserController {
       let userQuery = await this.userService.getAllUser(username);
 
       if (userQuery.length > 0) {
-        res.json("重覆username！");
+        res.json("重覆username");
         return;
       }
       try {

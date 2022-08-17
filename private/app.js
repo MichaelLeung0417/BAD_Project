@@ -105,17 +105,21 @@ document.querySelector(".game").addEventListener("click", function () {
 });
 
 // AR BUTTON
+document
+  .getElementById("sendPhoto")
+  .addEventListener("submit", async function (event) {
+    event.preventDefault();
+    const form = event.target;
+    const res = await fetch("/eatUpdate", {
+      method: "POST",
+    });
+    const result = await res.json();
+    document.getElementById("content").innerHTML = result;
 
-const form = event.target;
-const res = await fetch("/eatUpdate", {
-  method: "POST",
-});
-const result = await res.json();
-document.getElementById("content").innerHTML = result;
-
-setTimeout(() => {
-  document.getElementById("content").innerHTML = "";
-}, 2000);
+    setTimeout(() => {
+      document.getElementById("content").innerHTML = "";
+    }, 2000);
+  });
 
 document
   .querySelector(".arButton")
