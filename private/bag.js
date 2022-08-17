@@ -1,6 +1,6 @@
 async function getUsername() {
   const get = await fetch("/getUsername");
-  const result = await userInfo.json();
+  const result = await get.json();
 
   const username = result["username"];
 
@@ -24,3 +24,4 @@ async function displayPets() {
 }
 
 getUsername();
+displayPets();
