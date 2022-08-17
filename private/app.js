@@ -98,7 +98,7 @@ function hungry() {
   isHungry = true;
 }
 
-let timingEvent = setInterval(countDownTimer, 3000);
+setInterval(countDownTimer, 3000);
 
 function countDownTimer() {
   doody();
@@ -157,6 +157,8 @@ const submitPhoto = document
       method: "POST",
     });
     const result = await res.json();
+
+    isHungry = false;
   });
 
 // clean BUTTON
@@ -171,11 +173,13 @@ document
     });
     const result = await res.json();
 
-    const doody = document.querySelectorAll(".doody-container");
-    doody.classList.add("hidden");
-    isClean = true;
-  });
+    const doodyArr = document.querySelectorAll(".doody-container");
 
+    for (const doody of doodyArr) {
+      doody.classList.add("hidden");
+      isClean = true;
+    }
+  });
 
 // SPEECH FUNCTION
 
