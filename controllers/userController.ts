@@ -26,7 +26,7 @@ export class UserController {
         console.log(`User:${username} ID:${req.session["user"]} has logged in`);
         return;
       }
-      res.json("你中左大裝，我地唔知你錯咩");
+      res.json("你中左大獎，我地唔知你錯咩");
     } catch (err) {
       console.error(err);
       res.status(500).send("Internal Server Error");
