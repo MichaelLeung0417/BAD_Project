@@ -1,6 +1,6 @@
 async function getUsername() {
   const get = await fetch("/getUsername");
-  const result = await userInfo.json();
+  const result = await get.json();
 
   const username = result["username"];
 
@@ -9,9 +9,14 @@ async function getUsername() {
 
 async function displayPets() {
   const get = await fetch("/showAllPets");
-  const result = result.json();
+  const result = get.json();
 
-  const allPets = result["allPetInfo"]; // array of pet info
+  const allPets = result["allPetInfo"]; // array of pet info or none
+
+  if (allPets == "noPets") {
+    console.log("no pets");
+    return;
+  }
 
   const petDisplay = document.querySelector(".pets");
   petDisplay.innerHTML = "";
@@ -24,3 +29,4 @@ async function displayPets() {
 }
 
 getUsername();
+displayPets();

@@ -23,13 +23,25 @@ body {
   font-size: 40px;
   font-weight: bold;
   font-family: "Russo One", sans-serif;
-  margin: 50px 10px 10px 0px;
+  margin: 40px 10px 10px 0px;
 }
 
 #userID {
   font-weight: bold;
   font-family: "Russo One", sans-serif;
+  font-size: 30px;
+}
+
+input[type=submit]{
+  background-color: #fed3ee;
+  border-radius: 25px;
+  width: 100px;
+  height: 50px;
+  text-decoration: none;
+  color:#8f715a;
+  font-weight: bold;
   font-size: 20px;
+  border: 0;
 }
 
 .caption {

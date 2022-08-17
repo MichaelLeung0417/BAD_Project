@@ -16,6 +16,7 @@ export class PetController {
     res.redirect(`/app.html`);
   };
 
+  // SHOW ALL PETS
   showAllPets = async (req: express.Request, res: express.Response) => {
     const userId = parseInt(req.session["user"]);
 
