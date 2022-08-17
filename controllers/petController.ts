@@ -170,6 +170,9 @@ export class PetController {
     const playScore: number = req.body.playScore;
     let kidSprite;
 
+    let petId = parseInt(req.params.petId);
+    let kidPetInfo = await this.petService.getPetInfo(petId);
+
     if (foodScore < 5) {
       if (talkScore < 5) {
         kidSprite = "kid1";
@@ -187,7 +190,7 @@ export class PetController {
         }
       }
     }
-    res.json({ kidSprite: kidSprite });
+    res.json({ kidSprite: kidSprite, kidPetInfo });
   };
 
   // ADULT SPRITE CALCULATOR
@@ -198,6 +201,8 @@ export class PetController {
     const cleanScore: number = req.body.cleanScore;
     const playScore: number = req.body.playScore;
     let aldultSprite;
+    let petId = parseInt(req.params.petId);
+    let aldultPetInfo = await this.petService.getPetInfo(petId);
 
     if (foodScore < 5) {
       if (talkScore < 5) {
@@ -216,6 +221,6 @@ export class PetController {
         }
       }
     }
-    res.json({ aldultSprite: aldultSprite });
+    res.json({ aldultSprite: aldultSprite, aldultPetInfo });
   };
 }
