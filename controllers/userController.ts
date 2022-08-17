@@ -70,6 +70,7 @@ export class UserController {
   };
 
   // GET USERNAME
+
   getUsername = async (req: express.Request, res: express.Response) => {
     const userId = parseInt(req.session["user"]);
 
