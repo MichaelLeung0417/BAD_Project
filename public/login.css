@@ -3,10 +3,21 @@ body {
   justify-content: center;
   align-items: center;
   font-size: 16px;
-  font-family: 'Russo One', sans-serif;
+  font-family: "Russo One", sans-serif;
 }
 
-h1{
+.prePage {
+  display: flex;
+  height: 50px;
+  align-items: center;
+  padding-left: 20px;
+  background-image: url(back-removebg-preview.png);
+  width: 50px;
+  background-size: cover;
+  padding: 10px;
+}
+
+h1 {
   text-align: center;
   font-weight: bold;
   color: #f5f872;
@@ -20,12 +31,11 @@ h1{
   width: 390px;
   height: 844px;
   padding: 20px;
-  background-image:url(other.jpeg);
+  background-image: url(other.jpeg);
   background-size: cover;
   object-fit: fill;
   background-repeat: repeat-x;
   animation: background-animation 50s linear infinite;
-
 }
 @keyframes background-animation {
   0% {
@@ -36,7 +46,6 @@ h1{
     background-position-x: 1920px;
   }
 }
-
 
 .title {
   font-size: 60px;
@@ -61,12 +70,12 @@ input:last-child {
   width: 60px;
 }
 
-.login{
+.login {
   position: relative;
   box-sizing: content-box;
   background-color: #fed3ee;
   font-weight: bold;
   color: #836334;
   border: 3px solid #836334;
-  font-family: 'Russo One', sans-serif;
+  font-family: "Russo One", sans-serif;
 }

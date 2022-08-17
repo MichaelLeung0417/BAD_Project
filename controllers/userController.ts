@@ -12,6 +12,11 @@ export class UserController {
 
       let userQuery = await this.userService.getAllUser(username);
 
+      if (userQuery.length === 0 || userQuery === undefined) {
+        res.json("帳號或密碼錯誤！");
+        return;
+      }
+
       if (await checkPassword(password, userQuery[0].hashPassword)) {
         req.session["isUser"] = true;
         req.session["user"] = userQuery[0].id;
@@ -19,16 +24,12 @@ export class UserController {
         console.log(`User:${username} ID:${req.session["user"]} has logged in`);
         return;
       }
-      res.json("帳號或密碼錯誤！");
+      res.json("你中左大裝，我地唔知你錯咩");
     } catch (err) {
       console.error(err);
-      res.redirect("/");
+      res.status(500).send("Internal Server Error");
       return;
     }
-
-    setTimeout(() => {
-      res.redirect("/");
-    }, 2000);
   };
 
   register = async (req: express.Request, res: express.Response) => {

@@ -36,9 +36,7 @@ body {
   padding: 20px;
   font-size: 20px;
   padding-bottom: 0;
-  margin-bottom: 20px;
   font-family: "Russo One", sans-serif;
-  margin: 30px 10px 20px 0px;
 }
 
 #userIcon {
@@ -107,7 +105,7 @@ body {
   height: 50px;
 } */
 
-.addPet{
+.addPet {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -118,13 +116,20 @@ body {
   border: 0;
 }
 
-.egg{
+.egg {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.eggPhoto{
+.eggPhoto {
   width: 50%;
   height: 50%;
+}
+
+.logoutForm {
+  width: 150px;
+  height: 30px;
+  border-radius: 20px;
+  margin-top: 10px;
 }
