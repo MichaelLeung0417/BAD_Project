@@ -24,7 +24,7 @@ async function displayPets() {
   console.log(allPets);
 
   if (allPets == "noPets") {
-    petDisplay.innerHTML += "no pets";
+    petDisplay.innerHTML += '<div class="petName">no pets<div>';
     return;
   }
 
