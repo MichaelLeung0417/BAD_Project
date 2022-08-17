@@ -96,8 +96,11 @@ setInterval(spriteChange, 1000);
 setInterval(doodyChange, 500);
 
 function doody() {
-  const doody1 = document.querySelector("#doody1");
-  doody1.classList.remove("hidden");
+  const doodyArr = document.querySelectorAll(".doody-container");
+
+  for (const doody of doodyArr) {
+    doody.classList.remove("hidden");
+  }
   isClean = false;
 }
 
