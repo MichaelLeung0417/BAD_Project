@@ -152,4 +152,62 @@ export class PetController {
       res.json({ filename: files["file"]["newFilename"] });
     });
   };
+
+  // KID SPRITE CALCULATOR
+
+  calculateKid = async (req: express.Request, res: express.Response) => {
+    const foodScore = req.body.foodScore;
+    const talkScore = req.body.talkScore;
+    const cleanScore = req.body.cleanScore;
+    const playScore = req.body.playScore;
+    let kidSprite;
+
+    if (foodScore < 5) {
+      if (talkScore < 5) {
+        kidSprite = "kid1";
+      } else {
+        kidSprite = "kid2";
+      }
+    } else {
+      if (cleanScore < 5) {
+        kidSprite = "kid3";
+      } else {
+        if (playScore < 5) {
+          kidSprite = "kid4";
+        } else {
+          kidSprite = "kid5";
+        }
+      }
+    }
+    res.json({ kidSprite: kidSprite });
+  };
+
+  // ADULT SPRITE CALCULATOR
+
+  calculateAldult = async (req: express.Request, res: express.Response) => {
+    const foodScore = req.body.foodScore;
+    const talkScore = req.body.talkScore;
+    const cleanScore = req.body.cleanScore;
+    const playScore = req.body.playScore;
+    let aldultSprite;
+
+    if (foodScore < 5) {
+      if (talkScore < 5) {
+        aldultSprite = "aldult1";
+      } else {
+        aldultSprite = "aldult2";
+      }
+    } else {
+      if (cleanScore < 5) {
+        aldultSprite = "aldult3";
+      } else {
+        if (playScore < 5) {
+          aldultSprite = "aldult4";
+        } else {
+          aldultSprite = "aldult5";
+        }
+      }
+    }
+    res.json({ aldultSprite: aldultSprite });
+  };
 }

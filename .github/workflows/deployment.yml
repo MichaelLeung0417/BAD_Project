@@ -37,6 +37,7 @@ jobs:
           yarn knex migrate:latest 
           yarn knex seed:run
           
+          
 
 
 
