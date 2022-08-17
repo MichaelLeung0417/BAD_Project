@@ -143,7 +143,7 @@ const submitPhoto = document
     console.log(response["filename"]);
 
     const analysePhoto = await fetch(
-      `https://smart-chipy.callings.me/analyzePhoto?a=${response["filename"]}`
+      `https://smart-chipy.callings.me/analysePhoto?a=${response["filename"]}`
     );
 
     const whatFruit = await analysePhoto.json();
