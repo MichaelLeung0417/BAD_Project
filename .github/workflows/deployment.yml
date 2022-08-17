@@ -51,11 +51,10 @@ jobs:
         command: |
           cd BAD_Project
           git pull
-          forever stopall
-          forever start index.js
+          forever restart index.js
           cd python
           cd appleOrangeApp
-          forever start -c python3 main.py
+          forever restart -c python3 main.py
         host: 18.142.208.18
         user: ubuntu
         key: ${{secrets.SSH_PRIVATE_KEY}}

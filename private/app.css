@@ -95,7 +95,27 @@ body {
 }
 
 .doody-container img {
-  position: relative;
+  position: absolute;
+}
+
+.doody1 {
+  left: 0;
+  top: 50%;
+}
+
+.doody2 {
+  left: 50%;
+  top: 50%;
+}
+
+.doody3 {
+  left: 69%;
+  top: 69%;
+}
+
+.doody4 {
+  left: 38%;
+  top: 10%;
 }
 
 .options {
