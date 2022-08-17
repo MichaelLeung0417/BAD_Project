@@ -14,7 +14,6 @@ let foodScore;
 let talkScore;
 let cleanScore;
 let playScore;
-let totalScore;
 
 let isClean = true;
 let isHungry = false;

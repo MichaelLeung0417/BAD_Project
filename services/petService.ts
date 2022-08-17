@@ -48,7 +48,7 @@ export class PetService {
         brightnessScore: 0,
         cleanScore: 0,
         playScore: 0,
-        juvenileSprite: "baby1",
+        juvenileSprite: null,
         adultSprite: null,
         timeElapsed: 0, //10 mins
         totalScore: null,
