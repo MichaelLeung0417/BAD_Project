@@ -13,6 +13,8 @@ async function getUsername() {
   document.getElementById("userID").innerHTML = username;
 }
 
+getUsername();
+
 async function displayPets() {
   const get = await fetch("/showAllPets");
   const result = await get.json();
@@ -41,6 +43,8 @@ async function displayPets() {
   //     petDisplay.innerHTML += `<div class="pet-frame"><a href="./app.html?petId=${petId}">${petName}</a></div>`;
   //   }
 }
+
+displayPets();
 
 // CAROUSEL BUTTONS
 
