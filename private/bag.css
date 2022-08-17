@@ -32,13 +32,13 @@ body {
   font-size: 30px;
 }
 
-input[type=submit]{
+input[type="submit"] {
   background-color: #fed3ee;
   border-radius: 25px;
   width: 100px;
   height: 50px;
   text-decoration: none;
-  color:#8f715a;
+  color: #8f715a;
   font-weight: bold;
   font-size: 20px;
   border: 0;
@@ -63,6 +63,14 @@ input[type=submit]{
   height: 250px;
   width: 100%;
   position: relative;
+}
+
+.pet-frame {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .carousel {
