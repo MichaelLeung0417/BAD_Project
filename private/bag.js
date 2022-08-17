@@ -9,9 +9,11 @@ async function getUsername() {
 
 async function displayPets() {
   const get = await fetch("/showAllPets");
-  const result = get.json();
+  const result = await get.json();
 
   const allPets = result["allPetInfo"]; // array of pet info or none
+
+  console.log(allPets);
 
   if (allPets == "noPets") {
     console.log("no pets");
