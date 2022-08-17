@@ -9,8 +9,8 @@ beforeEach(() => {
 });
 
 it("should get data from users", async () => {
-  const usersData = await userService.getAllUser("1");
-  expect(usersData.length).toBe(0);
+  const usersData = await userService.getAllUser("fung");
+  console.log("usersData is: ", usersData);
 });
 
 it("should insert data into db", async () => {
@@ -18,5 +18,10 @@ it("should insert data into db", async () => {
   let expected = await knex.select("*").from("users").where({
     username: "630",
   });
-  expect(expected.length).toBe(1);
+  console.log(expected);
+});
+
+it("should get username by Id", async () => {
+  const userName = await userService.getUserNameById(1);
+  console.log(userName);
 });

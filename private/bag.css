@@ -107,7 +107,7 @@ body {
   height: 50px;
 } */
 
-.addPet{
+.addPet {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -118,13 +118,13 @@ body {
   border: 0;
 }
 
-.egg{
+.egg {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.eggPhoto{
+.eggPhoto {
   width: 50%;
   height: 50%;
 }

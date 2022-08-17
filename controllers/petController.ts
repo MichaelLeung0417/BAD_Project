@@ -16,11 +16,11 @@ export class PetController {
   };
 
   showAllPets = async (req: express.Request, res: express.Response) => {
-    const userId: number = req.body.userId;
+    const userId = parseInt(req.session["user"]);
 
     const allPetInfo = await this.petService.getAllPets(userId);
 
-    res.json(allPetInfo);
+    res.json({ allPetInfo: allPetInfo });
   };
 
   getPetInfo = async (req: express.Request, res: express.Response) => {
