@@ -116,12 +116,6 @@ const addPhotoPopup = document.querySelector(".add-photo-popup");
 document.querySelector(".eatButton").addEventListener("click", function () {
   addPhotoPopup.classList.remove("hidden");
 });
-// document.querySelector(".game").addEventListener("click", function () {
-//   if (addPhotoPopup.classList[1] == "hidden") {
-//     return;
-//   }
-//   addPhotoPopup.classList.add("hidden");
-// });
 
 const submitPhoto = document
   .querySelector("#sendPhoto")
@@ -196,19 +190,6 @@ document
     }, 2000);
   });
 
-// document
-//   .querySelector(".talk")
-//   .addEventListener("submit", async function (event) {
-//     event.preventDefault();
-
-//     const form = event.target;
-//     const res = await fetch("/speechTest", {
-//       method: "POST",
-//     });
-//     const result = await res.json();
-//     console.log(result);
-//   });
-
 // SPEECH FUNCTION
 
 function SpeechRecog() {
@@ -267,30 +248,3 @@ function SpeechRecog() {
   // start recognition
   recognition.start();
 }
-
-// const submitPhoto = document
-//   .querySelector("#sendPhoto")
-//   .addEventListener("submit", async function (event) {
-//     event.preventDefault();
-
-//     const input = document.querySelector('input[type="file"]');
-
-//     var data = new FormData();
-//     data.append("file", input.files[0]);
-
-//     const saveFile = await fetch("/receiveFruit", {
-//       method: "POST",
-//       body: data,
-//     });
-
-//     const response = await saveFile.json();
-//     console.log(response["filename"]);
-
-//     const analysePhoto = await fetch(
-//       `https://smart-chipy.callings.me/analysePhoto?a=${response["filename"]}`
-//     );
-
-//     const whatFruit = await analysePhoto.json();
-
-//     console.log(whatFruit["result"]);
-//   });
