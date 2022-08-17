@@ -70,7 +70,6 @@ body {
 }
 
 .sprite-container {
-  /* background-color: pink; */
   width: 250px;
   height: 250px;
   position: relative;
@@ -80,13 +79,20 @@ body {
   position: relative;
 }
 
-.sprite-container img {
+.sprite-container > img {
   /* width: 400%; */
   height: 90%;
   position: absolute;
   left: 0px;
   top: 10px;
   z-index: 2;
+}
+
+#speechBubble {
+  width: 80px;
+  height: 80px;
+
+  left: 170px;
 }
 
 .doody-container img {
