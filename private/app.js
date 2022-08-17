@@ -14,10 +14,12 @@ let isAdult;
 
 const spriteContainer = document.querySelector(".sprite-container");
 const sprite = document.querySelector("#sprite");
+const doodySprite = document.querySelector("#doody");
 
-let defaultLeft = 150;
-let defaultTop = 300;
+let defaultLeft = 30;
+let defaultTop = 200;
 let defaultSpritePosition = 0;
+let defaultDoodyPosition = 0;
 
 function spriteChange() {
   if (defaultSpritePosition == 0) {
@@ -26,6 +28,15 @@ function spriteChange() {
     defaultSpritePosition = 0;
   }
   sprite.style["left"] = `${defaultSpritePosition}px`;
+}
+
+function doodyChange() {
+  if (defaultDoodyPosition == 0) {
+    defaultDoodyPosition = -100;
+  } else {
+    defaultDoodyPosition = 0;
+  }
+  doodySprite.style["left"] = `${defaultDoodyPosition}px`;
 }
 
 function movement() {
@@ -71,6 +82,14 @@ function movement() {
 
 setInterval(movement, 500);
 setInterval(spriteChange, 1000);
+setInterval(doodyChange, 500);
+
+function doody() {
+  const doody1 = document.querySelector("#doody1");
+  doody1.classList.remove("hidden");
+}
+
+doody();
 
 // submit to the server via ajax
 
@@ -97,25 +116,53 @@ const addPhotoPopup = document.querySelector(".add-photo-popup");
 document.querySelector(".eatButton").addEventListener("click", function () {
   addPhotoPopup.classList.remove("hidden");
 });
-document.querySelector(".game").addEventListener("click", function () {
-  if (addPhotoPopup.classList[1] == "hidden") {
-    return;
-  }
-  addPhotoPopup.classList.add("hidden");
-});
+// document.querySelector(".game").addEventListener("click", function () {
+//   if (addPhotoPopup.classList[1] == "hidden") {
+//     return;
+//   }
+//   addPhotoPopup.classList.add("hidden");
+// });
+
+const submitPhoto = document
+  .querySelector("#sendPhoto")
+  .addEventListener("submit", async function (event) {
+    event.preventDefault();
+    addPhotoPopup.classList.add("hidden");
+
+    const input = document.querySelector('input[type="file"]');
+
+    var data = new FormData();
+    data.append("file", input.files[0]);
+
+    const saveFile = await fetch("/receiveFruit", {
+      method: "POST",
+      body: data,
+    });
+
+    const response = await saveFile.json();
+    console.log(response["filename"]);
+
+    const analysePhoto = await fetch(
+      `https://smart-chipy.callings.me/analyzePhoto?a=${response["filename"]}`
+    );
+
+    const whatFruit = await analysePhoto.json();
+
+    console.log(whatFruit["result"]);
+  });
 
 // AR BUTTON
 
-const form = event.target;
-const res = await fetch("/eatUpdate", {
-  method: "POST",
-});
-const result = await res.json();
-document.getElementById("content").innerHTML = result;
+// const form = event.target;
+// const res = await fetch("/eatUpdate", {
+//   method: "POST",
+// });
+// const result = await res.json();
+// document.getElementById("content").innerHTML = result;
 
-setTimeout(() => {
-  document.getElementById("content").innerHTML = "";
-}, 2000);
+// setTimeout(() => {
+//   document.getElementById("content").innerHTML = "";
+// }, 2000);
 
 document
   .querySelector(".arButton")
@@ -177,7 +224,13 @@ function SpeechRecog() {
       `https://smart-chipy.callings.me/query_string?a=${transcript}`
     );
     const response = await request.json();
-    console.log(response);
+
+    if (response == "positive") {
+      console.log(response);
+    } else {
+      console.log(response);
+    }
+
     const sentiment = document.querySelector("#sentiment");
     sentiment.innerHTML = response;
   };
