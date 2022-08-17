@@ -116,9 +116,9 @@ function countDownTimer() {
   hungry();
 }
 
-setTimeout(updateKidPet, 2000);
+setTimeout(updateKidPet, 20000);
 
-setTimeout(updateAdultPet, 4000);
+setTimeout(updateAdultPet, 40000);
 
 // submit to the server via ajax
 
