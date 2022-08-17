@@ -51,7 +51,6 @@ jobs:
         command: |
           cd BAD_Project
           git pull
-          forever stopall
           forever restart index.js
           cd python
           cd appleOrangeApp

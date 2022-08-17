@@ -72,6 +72,9 @@ input[type="submit"] {
   width: 300px; ;
   position: relative;
   font-family: "Russo One", sans-serif;
+  color: #8f715a;
+  text-decoration:none;
+  font-size: 50px;
   
 }
 
