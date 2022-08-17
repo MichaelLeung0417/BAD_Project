@@ -15,7 +15,7 @@ export class PetController {
     const thisPetId = await this.petService.addPet(petName, userId);
     req.session["pet"] = thisPetId;
 
-    res.redirect(`/app.html`);
+    res.redirect(`/app.html?petId=${thisPetId}`);
   };
 
   // SHOW ALL PETS
