@@ -58,11 +58,27 @@ input[type="submit"] {
   height: 50px;
 }
 
+.petbox{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .pets {
-  background-color: grey;
-  height: 250px;
-  width: 100%;
+  background-color: #fed3ee;
+  border: 0;
+  border-radius: 40px;
+  height: 200px;
+  width: 300px; ;
   position: relative;
+  font-family: "Russo One", sans-serif;
+  
+}
+
+.petName{
+  color: #8f715a;
+  text-decoration:none;
+  font-size: 50px;
 }
 
 .pet-frame {
