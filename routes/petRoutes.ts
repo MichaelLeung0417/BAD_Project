@@ -10,15 +10,15 @@ export function createPetRoutes(petController: PetController) {
   petRouter.get("/play/:id", petController.play);
   petRouter.get("/stopGame/:id", petController.stopGame);
   petRouter.post("/speechTest", petController.speechTest);
-  petRouter.post("/eatUpdate", petController.eat);
-  petRouter.post("/cleanUpdate", petController.clean);
-  petRouter.post("/playWithPet", petController.playWithPet);
+  petRouter.post("/eatUpdate/:petId", petController.eat);
+  petRouter.post("/cleanUpdate/:petId", petController.clean);
+  petRouter.post("/playWithPet/:petId", petController.playWithPet);
   petRouter.post("/receiveFruit", petController.receiveFruit);
 
   petRouter.post("/calculateKid", petController.calculateKid);
   petRouter.post("/calculateAldult", petController.calculateAldult);
 
-  petRouter.post("/speechUpdate", petController.speech);
+  petRouter.post("/speechUpdate/:petId", petController.speech);
 
   return petRouter;
 }

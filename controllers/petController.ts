@@ -93,26 +93,28 @@ export class PetController {
 
   stopGame = async (req: express.Request, res: express.Response) => {};
 
+  // play with pet
   playWithPet = async (req: express.Request, res: express.Response) => {
-    const petId = Number(req.session["pet"]);
+    const petId = parseInt(req.params.petId);
     res.json("finished playing with pet");
     await this.petService.changeStats("playScore", 5, petId);
   };
 
   eat = async (req: express.Request, res: express.Response) => {
-    const petId = Number(req.session["pet"]);
+    const petId = parseInt(req.params.petId);
     res.json("finished meal");
     await this.petService.changeStats("foodScore", 5, petId);
   };
 
   clean = async (req: express.Request, res: express.Response) => {
-    const petId = Number(req.session["pet"]);
+    const petId = parseInt(req.params.petId);
+    console.log("petId: " + petId);
     res.json("finished cleaning");
     await this.petService.changeStats("cleanScore", 5, petId);
   };
 
   speech = async (req: express.Request, res: express.Response) => {
-    const petId = Number(req.session["pet"]);
+    const petId = parseInt(req.params.petId);
     res.json("finished talking");
     await this.petService.changeStats("talkScore", 5, petId);
   };

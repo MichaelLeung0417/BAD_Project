@@ -118,7 +118,7 @@ document
     event.preventDefault();
 
     const form = event.target;
-    const res = await fetch("/playWithPet", {
+    const res = await fetch(`/playWithPet/${petId}`, {
       method: "POST",
     });
     const result = await res.json();
@@ -159,7 +159,7 @@ const submitPhoto = document
     console.log(whatFruit["result"]);
 
     if (whatFruit["result"] === "apple" || whatFruit["result"] === "orange") {
-      const res = await fetch("/eatUpdate", {
+      const res = await fetch(`/eatUpdate/${petId}`, {
         method: "POST",
       });
       const result = await res.json();
@@ -175,7 +175,7 @@ document
     event.preventDefault();
 
     const form = event.target;
-    const res = await fetch("/cleanUpdate", {
+    const res = await fetch(`/cleanUpdate/${petId}`, {
       method: "POST",
     });
     const result = await res.json();
@@ -220,7 +220,7 @@ function SpeechRecog() {
     const response = await request.json();
 
     if (response == "positive") {
-      const res = await fetch("/speechUpdate", {
+      const res = await fetch(`/speechUpdate/${petId}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json; charset=utf-8",
