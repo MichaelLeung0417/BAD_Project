@@ -215,13 +215,13 @@ const submitPhoto = document
 
     if (whatFruit["result"] === "apple") {
       spriteContainer.innerHTML +=
-        '<img id="speechBubble" src="https://smart-chi.callings.me/others/appleBubble.png"';
+        '<img id="speechBubble" src="https://smart-chi.callings.me/others/appleBubble.png">';
     } else if (whatFruit["result"] === "orange") {
       spriteContainer.innerHTML +=
-        '<img id="speechBubble" src="https://smart-chi.callings.me/others/orangeBubble.png"';
+        '<img id="speechBubble" src="https://smart-chi.callings.me/others/orangeBubble.png">';
     } else {
       spriteContainer.innerHTML +=
-        '<img id="speechBubble" src="https://smart-chi.callings.me/others/questionBubble.png"';
+        '<img id="speechBubble" src="https://smart-chi.callings.me/others/questionBubble.png">';
     }
 
     if (whatFruit["result"] === "apple" || whatFruit["result"] === "orange") {
