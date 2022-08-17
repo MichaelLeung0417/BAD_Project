@@ -11,8 +11,13 @@ export class PetService {
       .from("user_pet")
       .where("user_id", userId);
 
-    const listOfPetInfo: Array<object> = [];
+    if (results.length == 0) {
+      const noPets = "noPets";
 
+      return noPets;
+    }
+
+    const listOfPetInfo: Array<object> = [];
     for (let pet in results) {
       const petId = results[pet].pet_id;
       const petInfo = await this.knex

@@ -11,7 +11,12 @@ async function displayPets() {
   const get = await fetch("/showAllPets");
   const result = result.json();
 
-  const allPets = result["allPetInfo"]; // array of pet info
+  const allPets = result["allPetInfo"]; // array of pet info or none
+
+  if (allPets == "noPets") {
+    console.log("no pets");
+    return;
+  }
 
   const petDisplay = document.querySelector(".pets");
   petDisplay.innerHTML = "";

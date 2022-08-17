@@ -28,9 +28,9 @@ describe("petService", () => {
 
   // PASSED
   it("should retrieve a list of names and it's id of pets", async () => {
-    const results = await petService.getAllPets(1);
+    const results = await petService.getAllPets(2);
     // expect(results.length).toBeGreaterThan(0);
-    console.log(results);
+    console.log("pets of user2:", results.length);
   });
 
   // PASSED
