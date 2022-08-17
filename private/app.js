@@ -125,26 +125,28 @@ const submitPhoto = document
     var data = new FormData();
     data.append("file", input.files[0]);
 
-    const saveFile = await fetch("/receiveFruit", {
-      method: "POST",
-      body: data,
-    });
+    if (data.length > 0 && data.get("file") != null) {
+      const saveFile = await fetch("/receiveFruit", {
+        method: "POST",
+        body: data,
+      });
 
-    const response = await saveFile.json();
-    console.log(response["filename"]);
+      const response = await saveFile.json();
+      console.log(response["filename"]);
 
-    const analysePhoto = await fetch(
-      `https://smart-chipy.callings.me/analysePhoto?a=${response["filename"]}`
-    );
+      const analysePhoto = await fetch(
+        `https://smart-chipy.callings.me/analysePhoto?a=${response["filename"]}`
+      );
 
-    const whatFruit = await analysePhoto.json();
+      const whatFruit = await analysePhoto.json();
 
-    console.log(whatFruit["result"]);
+      console.log(whatFruit["result"]);
 
-    const res = await fetch("/eatUpdate", {
-      method: "POST",
-    });
-    const result = await res.json();
+      const res = await fetch("/eatUpdate", {
+        method: "POST",
+      });
+      const result = await res.json();
+    }
   });
 
 // clean BUTTON
@@ -162,9 +164,6 @@ document
     const doody = document.querySelectorAll(".doody-container");
     doody.classList.add("hidden");
   });
-
-// isAdult Function
-function isAdult() {}
 
 // SPEECH FUNCTION
 
