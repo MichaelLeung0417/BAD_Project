@@ -10,6 +10,10 @@ let juvenileSprite;
 let adultSprite;
 let isAdult;
 
+let isClean = true;
+let isHungry = false;
+let timer;
+
 // ANIMATION
 
 const spriteContainer = document.querySelector(".sprite-container");
@@ -87,11 +91,19 @@ setInterval(doodyChange, 500);
 function doody() {
   const doody1 = document.querySelector("#doody1");
   doody1.classList.remove("hidden");
+  isClean = false;
 }
 
-setInterval(() => {
+function hungry() {
+  isHungry = true;
+}
+
+let timingEvent = setInterval(countDownTimer, 3000);
+
+function countDownTimer() {
   doody();
-}, 840000);
+  hungry();
+}
 
 // submit to the server via ajax
 
@@ -163,6 +175,7 @@ document
 
     const doody = document.querySelectorAll(".doody-container");
     doody.classList.add("hidden");
+    isClean = true;
   });
 
 // SPEECH FUNCTION

@@ -1,7 +1,6 @@
 import { UserService } from "../services/userService";
 import express from "express";
 import { checkPassword } from "../utilities/hash";
-import { rmSync } from "fs";
 
 export class UserController {
   constructor(private userService: UserService) {}
@@ -71,6 +70,7 @@ export class UserController {
   };
 
   // GET USERNAME
+
   getUsername = async (req: express.Request, res: express.Response) => {
     const userId = parseInt(req.session["user"]);
 
