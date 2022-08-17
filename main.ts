@@ -45,7 +45,8 @@ const petService = new PetService(knex);
 const petController = new PetController(petService);
 main.use(createPetRoutes(petController));
 
-main.use(isLogin, express.static("private"));
+// main.use(isLogin, express.static("private"));
+main.use(express.static("private"));
 
 const PORT = 8000;
 main.listen(PORT, () => {
