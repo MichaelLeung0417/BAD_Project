@@ -1,18 +1,25 @@
-let petName;
-let mood;
-let foodScore;
-let talkScore;
-let brightnessScore;
-let cleanScore;
-let playScore;
-let totalScore;
-let juvenileSprite;
-let adultSprite;
-let isAdult;
+// let petName;
+// let mood;
+// let foodScore;
+// let talkScore;
+// let brightnessScore;
+// let cleanScore;
+// let playScore;
+// let totalScore;
+// let juvenileSprite;
+// let adultSprite;
+// let isAdult;
+
+let foodScore = 0;
+let talkScore = 0;
+let cleanScore = 0;
+let playScore = 0;
 
 let isClean = true;
 let isHungry = false;
 let timer;
+
+const petId = new URL(location.href).searchParams.get("petId");
 
 // ANIMATION
 
@@ -107,13 +114,35 @@ function countDownTimer() {
 
 // submit to the server via ajax
 
+// document
+//   .querySelector(".petInfo")
+//   .addEventListener("submit", async function (event) {
+//     event.preventDefault();
+
+//     const form = event.target;
+//     const formObject = {};
+//     formObject["foodScore"] = form.firstName.value;
+//     formObject["talkScore"] = form.lastName.value;
+//     formObject["cleanScore"] = form.email.value;
+//     formObject["playScore"] = form.age.value;
+//     const res = await fetch(`/petInfoUpdate/${petId}`, {
+//       method: "POST",
+//       headers: {
+//         "Content-Type": "application/json",
+//       },
+//       body: JSON.stringify(formObject),
+//     });
+//     const result = await res.json();
+//     document.querySelector("#petInfo").innerHTML = result;
+//   });
+
 document
   .querySelector(".playerButton")
   .addEventListener("submit", async function (event) {
     event.preventDefault();
 
     const form = event.target;
-    const res = await fetch("/playWithPet", {
+    const res = await fetch(`/playWithPet/${petId}`, {
       method: "POST",
     });
     const result = await res.json();
@@ -154,7 +183,7 @@ const submitPhoto = document
     console.log(whatFruit["result"]);
 
     if (whatFruit["result"] === "apple" || whatFruit["result"] === "orange") {
-      const res = await fetch("/eatUpdate", {
+      const res = await fetch(`/eatUpdate/${petId}`, {
         method: "POST",
       });
       const result = await res.json();
@@ -170,7 +199,7 @@ document
     event.preventDefault();
 
     const form = event.target;
-    const res = await fetch("/cleanUpdate", {
+    const res = await fetch(`/cleanUpdate/${petId}`, {
       method: "POST",
     });
     const result = await res.json();
@@ -215,7 +244,7 @@ function SpeechRecog() {
     const response = await request.json();
 
     if (response == "positive") {
-      const res = await fetch("/speechUpdate", {
+      const res = await fetch(`/speechUpdate/${petId}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json; charset=utf-8",
