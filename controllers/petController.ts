@@ -96,25 +96,28 @@ export class PetController {
   // play with pet
   playWithPet = async (req: express.Request, res: express.Response) => {
     const petId = parseInt(req.params.petId);
+    console.log("finished playing with pet");
     res.json("finished playing with pet");
     await this.petService.changeStats("playScore", 5, petId);
   };
 
   eat = async (req: express.Request, res: express.Response) => {
     const petId = parseInt(req.params.petId);
+    console.log("finished meal");
     res.json("finished meal");
     await this.petService.changeStats("foodScore", 5, petId);
   };
 
   clean = async (req: express.Request, res: express.Response) => {
     const petId = parseInt(req.params.petId);
-    console.log("petId: " + petId);
+    console.log("finished cleaning");
     res.json("finished cleaning");
     await this.petService.changeStats("cleanScore", 5, petId);
   };
 
   speech = async (req: express.Request, res: express.Response) => {
     const petId = parseInt(req.params.petId);
+    console.log("finished talking");
     res.json("finished talking");
     await this.petService.changeStats("talkScore", 5, petId);
   };
@@ -161,10 +164,10 @@ export class PetController {
   // KID SPRITE CALCULATOR
 
   calculateKid = async (req: express.Request, res: express.Response) => {
-    const foodScore = req.body.foodScore;
-    const talkScore = req.body.talkScore;
-    const cleanScore = req.body.cleanScore;
-    const playScore = req.body.playScore;
+    const foodScore: number = req.body.foodScore;
+    const talkScore: number = req.body.talkScore;
+    const cleanScore: number = req.body.cleanScore;
+    const playScore: number = req.body.playScore;
     let kidSprite;
 
     if (foodScore < 5) {
@@ -190,26 +193,26 @@ export class PetController {
   // ADULT SPRITE CALCULATOR
 
   calculateAldult = async (req: express.Request, res: express.Response) => {
-    const foodScore = req.body.foodScore;
-    const talkScore = req.body.talkScore;
-    const cleanScore = req.body.cleanScore;
-    const playScore = req.body.playScore;
+    const foodScore: number = req.body.foodScore;
+    const talkScore: number = req.body.talkScore;
+    const cleanScore: number = req.body.cleanScore;
+    const playScore: number = req.body.playScore;
     let aldultSprite;
 
     if (foodScore < 5) {
       if (talkScore < 5) {
-        aldultSprite = "aldult1";
+        aldultSprite = "Aldult1";
       } else {
-        aldultSprite = "aldult2";
+        aldultSprite = "Aldult2";
       }
     } else {
       if (cleanScore < 5) {
-        aldultSprite = "aldult3";
+        aldultSprite = "Aldult3";
       } else {
         if (playScore < 5) {
-          aldultSprite = "aldult4";
+          aldultSprite = "Aldult4";
         } else {
-          aldultSprite = "aldult5";
+          aldultSprite = "Aldult5";
         }
       }
     }
