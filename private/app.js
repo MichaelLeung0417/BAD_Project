@@ -96,8 +96,11 @@ setInterval(spriteChange, 1000);
 setInterval(doodyChange, 500);
 
 function doody() {
-  const doody1 = document.querySelector("#doody1");
-  doody1.classList.remove("hidden");
+  const doodyArr = document.querySelectorAll(".doody-container");
+
+  for (const doody of doodyArr) {
+    doody.classList.remove("hidden");
+  }
   isClean = false;
 }
 
@@ -112,41 +115,65 @@ function countDownTimer() {
   hungry();
 }
 
+setTimeout(updateKidPet, 2000);
+
+setTimeout(updateAdultPet, 4000);
+
 // submit to the server via ajax
 
-// document
-//   .querySelector(".petInfo")
-//   .addEventListener("submit", async function (event) {
-//     event.preventDefault();
-
-//     const form = event.target;
-//     const formObject = {};
-//     formObject["foodScore"] = form.firstName.value;
-//     formObject["talkScore"] = form.lastName.value;
-//     formObject["cleanScore"] = form.email.value;
-//     formObject["playScore"] = form.age.value;
-//     const res = await fetch(`/petInfoUpdate/${petId}`, {
-//       method: "POST",
-//       headers: {
-//         "Content-Type": "application/json",
-//       },
-//       body: JSON.stringify(formObject),
-//     });
-//     const result = await res.json();
-//     document.querySelector("#petInfo").innerHTML = result;
-//   });
-
-document
-  .querySelector(".playerButton")
-  .addEventListener("submit", async function (event) {
-    event.preventDefault();
-
-    const form = event.target;
-    const res = await fetch(`/playWithPet/${petId}`, {
-      method: "POST",
-    });
-    const result = await res.json();
+// PETINFO -- KID
+async function updateKidPet() {
+  const formObject = {};
+  formObject["foodScore"] = foodScore;
+  formObject["talkScore"] = talkScore;
+  formObject["cleanScore"] = cleanScore;
+  formObject["playScore"] = playScore;
+  const res = await fetch(`/calculateKid/${petId}`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(formObject),
   });
+  const kidPetApperance = await res.json();
+  sprite.src = `https://smart-chi.callings.me/kid/${kidPetApperance.kidSprite}.png`;
+
+  foodScore = kidPetApperance.kidPetInfo.foodScore;
+  talkScore = kidPetApperance.kidPetInfo.talkScore;
+  cleanScore = kidPetApperance.kidPetInfo.cleanScore;
+  playScore = kidPetApperance.kidPetInfo.playScore;
+}
+
+// PETINFO -- ADULT
+async function updateAdultPet() {
+  const formObject = {};
+  formObject["foodScore"] = foodScore;
+  formObject["talkScore"] = talkScore;
+  formObject["cleanScore"] = cleanScore;
+  formObject["playScore"] = playScore;
+  const res = await fetch(`/calculateAldult/${petId}`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(formObject),
+  });
+  const adultPetApperance = await res.json();
+  sprite.src = `https://smart-chi.callings.me/Aldult/${adultPetApperance.aldultSprite}.png`;
+
+  foodScore = adultPetApperance.aldultPetInfo.foodScore;
+  talkScore = adultPetApperance.aldultPetInfo.talkScore;
+  cleanScore = adultPetApperance.aldultPetInfo.cleanScore;
+  playScore = adultPetApperance.aldultPetInfo.playScore;
+}
+
+// PLAY BUTTON
+document.querySelector(".playerButton").addEventListener("click", async () => {
+  const res = await fetch(`/playWithPet/${petId}`, {
+    method: "POST",
+  });
+  const result = await res.json();
+});
 
 // EAT BUTTON
 const addPhotoPopup = document.querySelector(".add-photo-popup");
@@ -192,25 +219,20 @@ const submitPhoto = document
     }
   });
 
-// clean BUTTON
-document
-  .querySelector(".arButton")
-  .addEventListener("submit", async function (event) {
-    event.preventDefault();
-
-    const form = event.target;
-    const res = await fetch(`/cleanUpdate/${petId}`, {
-      method: "POST",
-    });
-    const result = await res.json();
-
-    const doodyArr = document.querySelectorAll(".doody-container");
-
-    for (const doody of doodyArr) {
-      doody.classList.add("hidden");
-      isClean = true;
-    }
+// CLEAN BUTTON
+document.querySelector(".arButton").addEventListener("click", async () => {
+  const res = await fetch(`/cleanUpdate/${petId}`, {
+    method: "POST",
   });
+  const result = await res.json();
+
+  const doodyArr = document.querySelectorAll(".doody-container");
+
+  for (const doody of doodyArr) {
+    doody.classList.add("hidden");
+    isClean = true;
+  }
+});
 
 // SPEECH FUNCTION
 
