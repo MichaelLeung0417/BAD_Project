@@ -133,7 +133,7 @@ async function updateKidPet() {
     body: JSON.stringify(formObject),
   });
   const kidPetApperance = await res.json();
-  sprite.innerHTML = `<img src="https://smart-chi.callings.me/kid/${kidPetApperance}.png" />`;
+  sprite.innerHTML = `<img src="https://smart-chi.callings.me/kid/${kidPetApperance.kidSprite}.png" />`;
 }
 
 // PETINFO -- ADULT
@@ -151,7 +151,7 @@ async function updateAdultPet() {
     body: JSON.stringify(formObject),
   });
   const adultPetApperance = await res.json({});
-  sprite.innerHTML = `<img src="https://smart-chi.callings.me/kid/${adultPetApperance}.png" />`;
+  sprite.innerHTML = `<img src="https://smart-chi.callings.me/Aldult/${adultPetApperance.aldultSprite}.png" />`;
 }
 
 // PLAY BUTTON
