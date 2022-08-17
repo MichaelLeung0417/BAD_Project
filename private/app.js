@@ -250,14 +250,7 @@ function SpeechRecog() {
       });
       const content = await res.text();
     } else {
-      const res = await fetch("/speechUpdate", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json; charset=utf-8",
-          body: JSON.stringify("negative"),
-        },
-      });
-      const content = await res.text();
+      console.log("negative");
     }
 
     const sentiment = document.querySelector("#sentiment");

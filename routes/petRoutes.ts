@@ -14,6 +14,6 @@ export function createPetRoutes(petController: PetController) {
   petRouter.post("/cleanUpdate", petController.clean);
   petRouter.post("/playWithPet", petController.playWithPet);
   petRouter.post("/receiveFruit", petController.receiveFruit);
-
+  petRouter.post("/speechUpdate", petController.speech);
   return petRouter;
 }
