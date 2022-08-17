@@ -1,6 +1,6 @@
 import express from "express";
 import expressSession from "express-session";
-import { client } from "./utilities/middlewares";
+import { client, isLogin } from "./utilities/middlewares";
 import { createUserRoutes } from "./routes/userRoutes";
 import { createPetRoutes } from "./routes/petRoutes";
 import { PetController } from "./controllers/petController";
@@ -45,8 +45,7 @@ const petService = new PetService(knex);
 const petController = new PetController(petService);
 main.use(createPetRoutes(petController));
 
-// main.use(isLogin, express.static("private"));
-main.use(express.static("private"));
+main.use(isLogin, express.static("private"));
 
 const PORT = 8000;
 main.listen(PORT, () => {
