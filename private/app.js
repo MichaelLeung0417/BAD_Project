@@ -1,14 +1,20 @@
-let petName;
-let mood;
+// let petName;
+// let mood;
+// let foodScore;
+// let talkScore;
+// let brightnessScore;
+// let cleanScore;
+// let playScore;
+// let totalScore;
+// let juvenileSprite;
+// let adultSprite;
+// let isAdult;
+
 let foodScore;
 let talkScore;
-let brightnessScore;
 let cleanScore;
 let playScore;
 let totalScore;
-let juvenileSprite;
-let adultSprite;
-let isAdult;
 
 let isClean = true;
 let isHungry = false;
