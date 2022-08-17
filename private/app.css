@@ -83,9 +83,10 @@ body {
 .sprite-container img {
   /* width: 400%; */
   height: 90%;
-  position: relative;
+  position: absolute;
   left: 0px;
   top: 10px;
+  z-index: 2;
 }
 
 .doody-container img {
