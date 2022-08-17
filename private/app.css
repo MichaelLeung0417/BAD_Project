@@ -36,8 +36,7 @@ body {
   overflow: hidden;
 }
 
-
-.chooseFile::-webkit-file-upload-button{
+.chooseFile::-webkit-file-upload-button {
   background-color: #8f715a;
   border-radius: 20px;
   width: 50px;
@@ -49,8 +48,8 @@ body {
   border: 0;
 }
 
-.submitButton{
- background-color: #8f715a;
+.submitButton {
+  background-color: #8f715a;
   border-radius: 20px;
   color: #fed3ee;
   margin: 10px;
@@ -71,7 +70,6 @@ body {
 }
 
 .sprite-container {
-  /* background-color: pink; */
   width: 250px;
   height: 250px;
   position: relative;
@@ -81,12 +79,19 @@ body {
   position: relative;
 }
 
-.sprite-container img {
+.sprite-container > img {
   /* width: 400%; */
   height: 90%;
-  position: relative;
+  position: absolute;
   left: 0px;
   top: 10px;
+}
+
+#speechBubble {
+  width: 80px;
+  height: 80px;
+
+  left: 170px;
 }
 
 .doody-container img {
