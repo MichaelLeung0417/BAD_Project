@@ -55,6 +55,8 @@ export class PetService {
         isJuvenile: false,
         isAdult: false,
         petName: petName,
+        isGaming: false,
+        isHungry: false,
       })
       .into("pets")
       .returning("id");
