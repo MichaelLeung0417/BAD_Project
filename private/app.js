@@ -10,14 +10,16 @@
 // let adultSprite;
 // let isAdult;
 
-let foodScore;
-let talkScore;
-let cleanScore;
-let playScore;
+let foodScore = 0;
+let talkScore = 0;
+let cleanScore = 0;
+let playScore = 0;
 
 let isClean = true;
 let isHungry = false;
 let timer;
+
+const petId = new URL(location.href).searchParams.get("petId");
 
 // ANIMATION
 
@@ -111,6 +113,28 @@ function countDownTimer() {
 }
 
 // submit to the server via ajax
+
+// document
+//   .querySelector(".petInfo")
+//   .addEventListener("submit", async function (event) {
+//     event.preventDefault();
+
+//     const form = event.target;
+//     const formObject = {};
+//     formObject["foodScore"] = form.firstName.value;
+//     formObject["talkScore"] = form.lastName.value;
+//     formObject["cleanScore"] = form.email.value;
+//     formObject["playScore"] = form.age.value;
+//     const res = await fetch(`/petInfoUpdate/${petId}`, {
+//       method: "POST",
+//       headers: {
+//         "Content-Type": "application/json",
+//       },
+//       body: JSON.stringify(formObject),
+//     });
+//     const result = await res.json();
+//     document.querySelector("#petInfo").innerHTML = result;
+//   });
 
 document
   .querySelector(".playerButton")
