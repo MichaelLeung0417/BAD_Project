@@ -211,15 +211,18 @@ const submitPhoto = document
 
     console.log(whatFruit["result"]);
 
+    const spriteContainer = document.querySelector(".sprite-container");
 
-    if(whatFruit["result"] === "apple"){
-      document.querySelector(".sprite-container") += '<img id="speechBubble" src="https://smart-chi.callings.me/others/appleBubble.png"'
-    } else if (whatFruit["result"] === "orange"){
-      document.querySelector(".sprite-container") += '<img id="speechBubble" src="https://smart-chi.callings.me/others/orangeBubble.png"'
+    if (whatFruit["result"] === "apple") {
+      spriteContainer.innerHTML +=
+        '<img id="speechBubble" src="https://smart-chi.callings.me/others/appleBubble.png"';
+    } else if (whatFruit["result"] === "orange") {
+      spriteContainer.innerHTML +=
+        '<img id="speechBubble" src="https://smart-chi.callings.me/others/orangeBubble.png"';
     } else {
-      document.querySelector(".sprite-container") += '<img id="speechBubble" src="https://smart-chi.callings.me/others/questionBubble.png"'
+      spriteContainer.innerHTML +=
+        '<img id="speechBubble" src="https://smart-chi.callings.me/others/questionBubble.png"';
     }
-
 
     if (whatFruit["result"] === "apple" || whatFruit["result"] === "orange") {
       const res = await fetch(`/eatUpdate/${petId}`, {
