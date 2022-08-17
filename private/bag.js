@@ -34,7 +34,7 @@ async function displayPets() {
 
   allPetsLength = allPets.length;
 
-  petDisplay.innerHTML = `<div class="pet-frame"><a href="./app.html?petId=${allPets[0]["id"]}">${allPets[0]["petName"]}</a></div>`;
+  petDisplay.innerHTML = `<div class="pet-frame"><a href="./app.html?petId=${allMyPets[0]["id"]}">${allMyPets[0]["petName"]}</a></div>`;
 
   //   for (let pet of allPets) {
   //     const petName = pet["petName"];
