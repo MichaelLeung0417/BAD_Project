@@ -36,6 +36,27 @@ body {
   overflow: hidden;
 }
 
+
+.chooseFile::-webkit-file-upload-button{
+  background-color: #8f715a;
+  border-radius: 20px;
+  width: 50px;
+  height: 50px;
+  text-decoration: none;
+  color: #fed3ee;
+  font-weight: bold;
+  font-size: 5px;
+  border: 0;
+}
+
+.submitButton{
+ background-color: #8f715a;
+  border-radius: 20px;
+  color: #fed3ee;
+  margin: 10px;
+  font-weight: bold;
+}
+
 .add-photo-popup {
   background: #fed3ee;
   width: 300px;
