@@ -36,8 +36,7 @@ body {
   overflow: hidden;
 }
 
-
-.chooseFile::-webkit-file-upload-button{
+.chooseFile::-webkit-file-upload-button {
   background-color: #8f715a;
   border-radius: 20px;
   width: 50px;
@@ -49,8 +48,8 @@ body {
   border: 0;
 }
 
-.submitButton{
- background-color: #8f715a;
+.submitButton {
+  background-color: #8f715a;
   border-radius: 20px;
   color: #fed3ee;
   margin: 10px;
@@ -90,7 +89,27 @@ body {
 }
 
 .doody-container img {
-  position: relative;
+  position: absolute;
+}
+
+.doody1 {
+  left: 0;
+  top: 50%;
+}
+
+.doody2 {
+  left: 50%;
+  top: 50%;
+}
+
+.doody3 {
+  left: 69%;
+  top: 69%;
+}
+
+.doody4 {
+  left: 38%;
+  top: 10%;
 }
 
 .options {
