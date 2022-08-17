@@ -26,6 +26,7 @@ const petId = new URL(location.href).searchParams.get("petId");
 const spriteContainer = document.querySelector(".sprite-container");
 const sprite = document.querySelector("#sprite");
 const doodySprite = document.querySelector("#doody");
+let speechBubble = document.getElementById("speechBubble");
 
 let defaultLeft = 30;
 let defaultTop = 200;
@@ -211,15 +212,24 @@ const submitPhoto = document
 
     console.log(whatFruit["result"]);
 
-    const spriteContainer = document.querySelector(".sprite-container");
-
     if (whatFruit["result"] === "apple") {
+      if (speechBubble) {
+        speechBubble.remove();
+      }
+
       spriteContainer.innerHTML +=
         '<img id="speechBubble" src="https://smart-chi.callings.me/others/appleBubble.png">';
     } else if (whatFruit["result"] === "orange") {
+      if (speechBubble) {
+        speechBubble.remove();
+      }
+
       spriteContainer.innerHTML +=
         '<img id="speechBubble" src="https://smart-chi.callings.me/others/orangeBubble.png">';
     } else {
+      if (speechBubble) {
+        speechBubble.remove();
+      }
       spriteContainer.innerHTML +=
         '<img id="speechBubble" src="https://smart-chi.callings.me/others/questionBubble.png">';
     }
@@ -281,6 +291,12 @@ function SpeechRecog() {
     const response = await request.json();
 
     if (response == "positive") {
+      if (speechBubble) {
+        speechBubble.remove();
+      }
+      spriteContainer.innerHTML +=
+        '<img id="speechBubble" src="https://smart-chi.callings.me/others/happy.png">';
+
       const res = await fetch(`/speechUpdate/${petId}`, {
         method: "POST",
         headers: {
@@ -290,6 +306,11 @@ function SpeechRecog() {
       });
       const content = await res.text();
     } else {
+      if (speechBubble) {
+        speechBubble.remove();
+      }
+      spriteContainer.innerHTML +=
+        '<img id="speechBubble" src="https://smart-chi.callings.me/others/unhappy.png">';
       console.log("negative");
     }
 
