@@ -163,8 +163,6 @@ document
     doody.classList.add("hidden");
   });
 
-// isAdult Function
-function isAdult() {}
 
 // SPEECH FUNCTION
 
