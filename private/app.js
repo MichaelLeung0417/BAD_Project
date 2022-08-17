@@ -218,20 +218,20 @@ const submitPhoto = document
       }
 
       spriteContainer.innerHTML +=
-        '<img id="speechBubble" src="https://smart-chi.callings.me/others/appleBubble.png">';
+        '<img id="speechBubble" src="https://smart-chi.callings.me/others/apple.png">';
     } else if (whatFruit["result"] === "orange") {
       if (speechBubble) {
         speechBubble.remove();
       }
 
       spriteContainer.innerHTML +=
-        '<img id="speechBubble" src="https://smart-chi.callings.me/others/orangeBubble.png">';
+        '<img id="speechBubble" src="https://smart-chi.callings.me/others/orange.png">';
     } else {
       if (speechBubble) {
         speechBubble.remove();
       }
       spriteContainer.innerHTML +=
-        '<img id="speechBubble" src="https://smart-chi.callings.me/others/questionBubble.png">';
+        '<img id="speechBubble" src="https://smart-chi.callings.me/others/question.png">';
     }
 
     if (whatFruit["result"] === "apple" || whatFruit["result"] === "orange") {
@@ -295,7 +295,7 @@ function SpeechRecog() {
         speechBubble.remove();
       }
       spriteContainer.innerHTML +=
-        '<img id="speechBubble" src="https://smart-chi.callings.me/others/happy.png">';
+        '<img id="speechBubble" src="https://smart-chi.callings.me/others/heart.png">';
 
       const res = await fetch(`/speechUpdate/${petId}`, {
         method: "POST",
@@ -310,7 +310,7 @@ function SpeechRecog() {
         speechBubble.remove();
       }
       spriteContainer.innerHTML +=
-        '<img id="speechBubble" src="https://smart-chi.callings.me/others/unhappy.png">';
+        '<img id="speechBubble" src="https://smart-chi.callings.me/others/sad.png">';
       console.log("negative");
     }
 
