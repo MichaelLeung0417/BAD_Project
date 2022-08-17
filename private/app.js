@@ -89,7 +89,9 @@ function doody() {
   doody1.classList.remove("hidden");
 }
 
-doody();
+setInterval(() => {
+  doody();
+}, 840000);
 
 // submit to the server via ajax
 
@@ -103,11 +105,6 @@ document
       method: "POST",
     });
     const result = await res.json();
-    document.getElementById("content").innerHTML = result;
-
-    setTimeout(() => {
-      document.getElementById("content").innerHTML = "";
-    }, 2000);
   });
 
 // EAT BUTTON
@@ -143,36 +140,14 @@ const submitPhoto = document
     const whatFruit = await analysePhoto.json();
 
     console.log(whatFruit["result"]);
-  });
 
-// AR BUTTON
-document
-  .getElementById("sendPhoto")
-  .addEventListener("submit", async function (event) {
-    event.preventDefault();
-    const form = event.target;
     const res = await fetch("/eatUpdate", {
       method: "POST",
     });
     const result = await res.json();
-    document.getElementById("content").innerHTML = result;
-
-    setTimeout(() => {
-      document.getElementById("content").innerHTML = "";
-    }, 2000);
   });
 
-// const form = event.target;
-// const res = await fetch("/eatUpdate", {
-//   method: "POST",
-// });
-// const result = await res.json();
-// document.getElementById("content").innerHTML = result;
-
-// setTimeout(() => {
-//   document.getElementById("content").innerHTML = "";
-// }, 2000);
-
+// clean BUTTON
 document
   .querySelector(".arButton")
   .addEventListener("submit", async function (event) {
@@ -183,12 +158,13 @@ document
       method: "POST",
     });
     const result = await res.json();
-    document.getElementById("content").innerHTML = result;
 
-    setTimeout(() => {
-      document.getElementById("content").innerHTML = "";
-    }, 2000);
+    const doody = document.querySelectorAll(".doody-container");
+    doody.classList.add("hidden");
   });
+
+// isAdult Function
+function isAdult() {}
 
 // SPEECH FUNCTION
 
@@ -231,14 +207,7 @@ function SpeechRecog() {
       });
       const content = await res.text();
     } else {
-      const res = await fetch("/speechUpdate", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json; charset=utf-8",
-          body: JSON.stringify("negative"),
-        },
-      });
-      const content = await res.text();
+      console.log("negative");
     }
 
     const sentiment = document.querySelector("#sentiment");

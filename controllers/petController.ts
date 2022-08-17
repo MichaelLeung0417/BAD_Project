@@ -107,6 +107,12 @@ export class PetController {
     await this.petService.changeStats("cleanScore", 5, petId);
   };
 
+  speech = async (req: express.Request, res: express.Response) => {
+    const petId = Number(req.query.id);
+    res.json("finished talking");
+    await this.petService.changeStats("talkScore", 5, petId);
+  };
+
   // SPEECH
   speechTest = async (req: express.Request, res: express.Response) => {
     console.log("this ran");

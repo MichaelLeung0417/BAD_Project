@@ -18,5 +18,7 @@ export function createPetRoutes(petController: PetController) {
   petRouter.post("/calculateKid", petController.calculateKid);
   petRouter.post("/calculateAldult", petController.calculateAldult);
 
+  petRouter.post("/speechUpdate", petController.speech);
+
   return petRouter;
 }

@@ -16,9 +16,13 @@ document
     });
     const result = await res.json();
 
-    document.getElementById("responseError").innerHTML = result;
+    if (result === "login success") {
+      window.location.href = "/bag.html";
+    } else {
+      document.getElementById("responseError").innerHTML = result;
 
-    setTimeout(() => {
-      document.getElementById("responseError").innerHTML = "";
-    }, 2000);
+      setTimeout(() => {
+        document.getElementById("responseError").innerHTML = "";
+      }, 2000);
+    }
   });

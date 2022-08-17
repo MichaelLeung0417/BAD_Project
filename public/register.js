@@ -16,9 +16,13 @@ document
     });
     const result = await res.json();
 
-    document.getElementById("responseError").innerHTML = result;
+    if (result === "成功注冊！") {
+      window.location.href = "/";
+    } else {
+      document.getElementById("responseError").innerHTML = result;
 
-    setTimeout(() => {
-      document.getElementById("responseError").innerHTML = "";
-    }, 2000);
+      setTimeout(() => {
+        document.getElementById("responseError").innerHTML = "";
+      }, 2000);
+    }
   });
