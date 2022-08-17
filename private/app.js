@@ -133,7 +133,12 @@ async function updateKidPet() {
     body: JSON.stringify(formObject),
   });
   const kidPetApperance = await res.json();
-  sprite.innerHTML = `<img src="https://smart-chi.callings.me/kid/${kidPetApperance.kidSprite}.png" />`;
+  sprite.src = `https://smart-chi.callings.me/kid/${kidPetApperance.kidSprite}.png`;
+
+  foodScore = kidPetApperance.kidPetInfo.foodScore;
+  talkScore = kidPetApperance.kidPetInfo.talkScore;
+  cleanScore = kidPetApperance.kidPetInfo.cleanScore;
+  playScore = kidPetApperance.kidPetInfo.playScore;
 }
 
 // PETINFO -- ADULT
@@ -151,7 +156,12 @@ async function updateAdultPet() {
     body: JSON.stringify(formObject),
   });
   const adultPetApperance = await res.json();
-  sprite.innerHTML = `<img src="https://smart-chi.callings.me/Aldult/${adultPetApperance.aldultSprite}.png" />`;
+  sprite.src = `https://smart-chi.callings.me/Aldult/${adultPetApperance.aldultSprite}.png`;
+
+  foodScore = adultPetApperance.aldultPetInfo.foodScore;
+  talkScore = adultPetApperance.aldultPetInfo.talkScore;
+  cleanScore = adultPetApperance.aldultPetInfo.cleanScore;
+  playScore = adultPetApperance.aldultPetInfo.playScore;
 }
 
 // PLAY BUTTON
