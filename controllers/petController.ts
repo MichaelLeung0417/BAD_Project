@@ -9,7 +9,7 @@ export class PetController {
   // ADD PET
   addPet = async (req: express.Request, res: express.Response) => {
     const petName: string = req.body.petname;
-    const userId: number = req.session["users"];
+    const userId: number = req.session["user"];
     console.log("add pet userID is: ", userId);
 
     const thisPetId = await this.petService.addPet(petName, userId);
