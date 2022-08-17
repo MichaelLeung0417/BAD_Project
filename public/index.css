@@ -3,7 +3,7 @@ body {
   justify-content: center;
   align-items: center;
   font-size: 16px;
-  font-family: 'Russo One', sans-serif;
+  font-family: "Russo One", sans-serif;
 }
 
 .title {
@@ -13,7 +13,7 @@ body {
   color: #f5f872;
   -webkit-text-stroke: 2px #836334;
   margin: 150px 0px 0px 0px;
-  font-family: 'Russo One', sans-serif;
+  font-family: "Russo One", sans-serif;
 }
 
 .gameSection {
@@ -22,7 +22,7 @@ body {
   width: 390px;
   height: 844px;
   padding: 20px;
-  background-image:url(homepage.png);
+  background-image: url(homepage.png);
   background-size: cover;
   object-fit: fill;
   padding: 0px;
@@ -33,15 +33,19 @@ body {
 
 @keyframes background-animation {
   0% {
-    background-position-x: 0px;
+    background-position-x: 500px;
+  }
+
+  50% {
+    background-position-x: 1500px;
   }
 
   100% {
-    background-position-x: 1920px;
+    background-position-x: 500px;
   }
 }
 
-.pet{
+.pet {
   width: 60%;
   position: relative;
   top: 0px;
@@ -52,8 +56,6 @@ div {
   display: flex;
   justify-content: center;
 }
-
-
 
 .loginBackground {
   width: 150px;
@@ -68,7 +70,7 @@ div {
   align-items: center;
   color: #000;
   text-decoration: none;
-  background: linear-gradient(#fed3ee,#fed3ee,#fed3ee);
+  background: linear-gradient(#fed3ee, #fed3ee, #fed3ee);
 }
 
 .registerBackground {
@@ -84,23 +86,23 @@ div {
   align-items: center;
   color: #000;
   text-decoration: none;
-  background: linear-gradient(#8f715a,#8f715a,#8f715a);
+  background: linear-gradient(#8f715a, #8f715a, #8f715a);
 }
 
-.loginBox{
+.loginBox {
   margin: 100px 0px 0px 0px;
 }
 
-.login{
-color: #8f715a;
-font-weight: bold;
-font-size: 25px;
-font-family: 'Russo One', sans-serif;
+.login {
+  color: #8f715a;
+  font-weight: bold;
+  font-size: 25px;
+  font-family: "Russo One", sans-serif;
 }
 
-.register{
+.register {
   color: #fed3ee;
   font-weight: bold;
   font-size: 25px;
-  font-family: 'Russo One', sans-serif;
+  font-family: "Russo One", sans-serif;
 }
