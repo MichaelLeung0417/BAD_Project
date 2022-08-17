@@ -98,7 +98,7 @@ function hungry() {
   isHungry = true;
 }
 
-setInterval(countDownTimer, 3000);
+setInterval(countDownTimer, 10000);
 
 function countDownTimer() {
   doody();
@@ -153,12 +153,14 @@ const submitPhoto = document
 
     console.log(whatFruit["result"]);
 
-    const res = await fetch("/eatUpdate", {
-      method: "POST",
-    });
-    const result = await res.json();
+    if (whatFruit["result"] === "apple" || whatFruit["result"] === "orange") {
+      const res = await fetch("/eatUpdate", {
+        method: "POST",
+      });
+      const result = await res.json();
 
-    isHungry = false;
+      isHungry = false;
+    }
   });
 
 // clean BUTTON

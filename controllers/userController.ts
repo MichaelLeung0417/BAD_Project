@@ -65,6 +65,7 @@ export class UserController {
 
   logout = async (req: express.Request, res: express.Response) => {
     req.session["isUser"] = false;
+    console.log(`UserID:${req.session["user"]} has logged out`);
     delete req.session["user"];
     res.redirect("/");
   };
