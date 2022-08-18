@@ -80,6 +80,10 @@ input[type="submit"] {
   align-items: center;
 }
 
+.pets {
+  position: relative;
+}
+
 .petName {
   color: #8f715a;
   text-decoration: none;
