@@ -58,7 +58,7 @@ input[type="submit"] {
   height: 50px;
 }
 
-.petbox{
+.petbox {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -69,20 +69,24 @@ input[type="submit"] {
   border: 0;
   border-radius: 40px;
   height: 200px;
-  width: 300px; ;
+  width: 300px;
   position: relative;
   font-family: "Russo One", sans-serif;
   color: #8f715a;
-  text-decoration:none;
+  text-decoration: none;
   font-size: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.petName{
+.pets {
+  position: relative;
+}
+
+.petName {
   color: #8f715a;
-  text-decoration:none;
+  text-decoration: none;
   font-size: 50px;
   position: absolute;
   display: flex;
@@ -98,6 +102,7 @@ input[type="submit"] {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 
 .carousel {
@@ -181,7 +186,6 @@ input[type="submit"] {
   margin-top: 10px;
 }
 
-
-.ca{
+.ca {
   background-color: #000;
 }
