@@ -1,6 +1,6 @@
 
 import pandas as pd
-df = pd.read_csv("./Tweets.csv")
+df = pd.read_csv("./Tweets.csv") # remove unnecessary training code
 
 review_df = df[['text','airline_sentiment']]
 

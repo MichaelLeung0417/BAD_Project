@@ -92,10 +92,6 @@ function movement() {
   spriteContainer.style["top"] = defaultTop + "px";
 }
 
-setInterval(movement, 500);
-setInterval(spriteChange, 1000);
-setInterval(doodyChange, 500);
-
 function doody() {
   const doodyArr = document.querySelectorAll(".doody-container");
 
@@ -321,3 +317,7 @@ function SpeechRecog() {
   // start recognition
   recognition.start();
 }
+
+setInterval(movement, 500);
+setInterval(spriteChange, 1000);
+setInterval(doodyChange, 500);

@@ -1,4 +1,5 @@
 import { Knex } from "knex";
+import { hashPassword } from "../utilities/hash";
 
 export async function seed(knex: Knex): Promise<void> {
   // Deletes ALL existing entries
@@ -8,13 +9,13 @@ export async function seed(knex: Knex): Promise<void> {
 
   // Inserts seed entries
 
-  let user_id: Array<{ user_id: number }>;
+  let user_id: Array<{ id: number }>;
 
   user_id = await knex
     .insert([
       {
         username: "olevia",
-        hashPassword: "olevia",
+        hashPassword: await hashPassword("olevia"),
       },
       {
         username: "michael",
@@ -28,7 +29,7 @@ export async function seed(knex: Knex): Promise<void> {
     .into("users")
     .returning("id");
 
-  await knex
+  let pet_ids = await knex
     .insert([
       {
         // BABY PET
@@ -83,7 +84,8 @@ export async function seed(knex: Knex): Promise<void> {
         isGaming: false,
       },
     ])
-    .into("pets");
+    .into("pets")
+    .returning("id");
 
   // PUT into user_pet
   // return await knex
@@ -103,12 +105,13 @@ export async function seed(knex: Knex): Promise<void> {
   //   ])
   //   .into("user_pet");
 
-  for (let obj of user_id) {
-    for (let id in obj) {
-      await knex.raw("INSERT INTO user_pet (user_id, pet_id) VALUES (?,?)", [
-        obj[id],
-        obj[id],
-      ]);
-    }
+  // for (let obj of user_id) {
+  for (let i = 0; i < user_id.length; i++) {
+    // for (let id in obj) {
+    await knex.raw("INSERT INTO user_pet (user_id, pet_id) VALUES (?,?)", [
+      user_id[i].id,
+      pet_ids[i].id,
+    ]);
+    // }
   }
 }

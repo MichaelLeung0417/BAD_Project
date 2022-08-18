@@ -13,7 +13,7 @@ export class PetController {
     console.log("add pet userID is: ", userId);
 
     const thisPetId = await this.petService.addPet(petName, userId);
-    req.session["pet"] = thisPetId;
+    req.session["pet"] = thisPetId; // dead code?
 
     res.redirect(`/app.html?petId=${thisPetId}`);
   };
@@ -35,6 +35,7 @@ export class PetController {
     res.json(petInfo);
   };
 
+  // delete all dead code
   changeStats = async (req: express.Request, res: express.Response) => {
     const changeRequest:
       | "foodScore"
@@ -157,6 +158,8 @@ export class PetController {
     form.parse(req, async (err, fields, files) => {
       console.log(files["file"]["newFilename"]);
 
+      // use axios/node-fetch to post to the python backend
+
       res.json({ filename: files["file"]["newFilename"] });
     });
   };
@@ -164,7 +167,7 @@ export class PetController {
   // KID SPRITE CALCULATOR
 
   calculateKid = async (req: express.Request, res: express.Response) => {
-    const foodScore: number = req.body.foodScore;
+    const foodScore: number = req.body.foodScore; // should get from db?
     const talkScore: number = req.body.talkScore;
     const cleanScore: number = req.body.cleanScore;
     const playScore: number = req.body.playScore;

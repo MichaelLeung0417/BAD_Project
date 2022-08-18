@@ -34,6 +34,6 @@ export class UserService {
       .select("username")
       .from("users")
       .where("id", userId);
-    return userName[0]["username"];
+    return userName?.[0]?.["username"]; // add null safe
   }
 }

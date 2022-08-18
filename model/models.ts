@@ -29,6 +29,21 @@ export class Pet {
     private doody: boolean
   ) {}
 
+  private weight: number = 50;
+  private _hungerTimer: NodeJS.Timer;
+
+  feed() {
+    clearTimeout(this._hungerTimer);
+
+    this._hungerTimer = setTimeout(() => {
+      this.weight -= 1;
+    }, 30000);
+
+    this.weight += 5;
+
+    return this.weight;
+  }
+
   addToGeneralTime() {
     while (this.timeElapsed < 3600) {
       setInterval(() => {

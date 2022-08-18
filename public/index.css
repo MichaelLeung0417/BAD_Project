@@ -57,35 +57,27 @@ div {
   justify-content: center;
 }
 
-.loginBackground {
+.background {
   width: 150px;
   height: 30px;
   border-radius: 40px;
   font-weight: bold;
   font-size: 30px;
   margin-bottom: 30px;
-  border: 4px solid #8f715a;
   display: flex;
   justify-content: center;
   align-items: center;
   color: #000;
   text-decoration: none;
+}
+
+.loginBackground {
+  border: 4px solid #8f715a;
   background: linear-gradient(#fed3ee, #fed3ee, #fed3ee);
 }
 
 .registerBackground {
-  width: 150px;
-  height: 30px;
-  border-radius: 40px;
-  font-weight: bold;
-  font-size: 30px;
-  margin-bottom: 30px;
   border: 4px solid #fed3ee;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #000;
-  text-decoration: none;
   background: linear-gradient(#8f715a, #8f715a, #8f715a);
 }
 

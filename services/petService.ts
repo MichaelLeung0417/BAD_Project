@@ -1,11 +1,70 @@
 import { Knex } from "knex";
 // import { Pet } from "../model/models";
 
+const GAME_PARAMS = {
+  MIN_CLEAN_TIME: 5000,
+  WEIGHT_LOSS_TIME: 10000,
+};
+
 export class PetService {
   constructor(private knex: Knex) {}
 
+  async getPetWeight(petId: number) {
+    let results = await this.knex
+      .select("last_feed_time", "weight")
+      .from("pet")
+      .where("id", petId);
+
+    if (results.length == 0) {
+      throw new Error("No pet found"); // todo: custom error class
+    }
+
+    const weight =
+      results[0].weight -
+      (Date.now() - results[0].last_feed_time) / GAME_PARAMS.WEIGHT_LOSS_TIME;
+    if (weight <= 0) {
+      throw new Error("Pet died");
+    } else {
+      return weight;
+    }
+  }
+
+  async isPetClean(petId: number) {
+    let results = await this.knex
+      .select("last_clean_time")
+      .from("pet")
+      .where("id", petId);
+
+    if (results.length == 0) {
+      throw new Error("No pet found"); // todo: custom error class
+    }
+
+    if (Date.now() - results[0].last_clean_time > GAME_PARAMS.MIN_CLEAN_TIME) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
+  async cleanPet(petId: number) {
+    await this.knex
+      .update({
+        last_clean_time: Date.now(),
+      })
+      .where("id", petId)
+      .into("pet");
+  }
+
   // DISPLAY ALL INFO OF ALL PETS OF USER
   async getAllPets(userId: number) {
+    // JOIN? Select 1+n
+
+    // let petResults = await this.knex
+    //     .select('*')
+    //     .from("pets")
+    //     .join('user_pet', 'pet.id', 'user_pet.pet_id')
+    //     .where('user_pet.user_id', userId)
+
     let results = await this.knex
       .select("*")
       .from("user_pet")

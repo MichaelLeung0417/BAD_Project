@@ -15,7 +15,7 @@ export class UserController {
       let userQuery = await this.userService.getAllUser(username);
 
       if (userQuery.length === 0 || userQuery === undefined) {
-        res.json("帳號或密碼錯誤！");
+        res.status(404).json("帳號或密碼錯誤！");
         return;
       }
 
@@ -26,7 +26,7 @@ export class UserController {
         console.log(`User:${username} ID:${req.session["user"]} has logged in`);
         return;
       }
-      res.json("你中左大獎，我地唔知你錯咩");
+      res.json("密碼錯誤");
     } catch (err) {
       console.error(err);
       res.status(500).send("Internal Server Error");
@@ -41,20 +41,15 @@ export class UserController {
       let username: string = await req.body.username.trim();
       let password: string = await req.body.password.trim();
 
+      // Use Transaction or Add unique to username
       let userQuery = await this.userService.getAllUser(username);
 
       if (userQuery.length > 0) {
         res.json("重覆username");
         return;
       }
-      try {
-        await this.userService.insertUser(username, password);
-        res.json("成功注冊！");
-      } catch (err) {
-        console.error(err);
-        res.status(500).send("Internal Server Error");
-        return;
-      }
+      await this.userService.insertUser(username, password);
+      res.json("成功注冊！");
     } catch (err) {
       console.error(err);
       res.status(500).send("Internal Server Error");
@@ -76,6 +71,9 @@ export class UserController {
     const userId = parseInt(req.session["user"]);
 
     const username = await this.userService.getUserNameById(userId);
+
+    // safe check if user is not found
+
     res.json({ username: username });
   };
 }

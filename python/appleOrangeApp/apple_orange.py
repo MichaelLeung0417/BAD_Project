@@ -9,7 +9,9 @@ import tensorflow_datasets as tfds
 
 import pathlib
 
-data_dir = './apple_orange_photos'
+# remove unnecessary code
+
+data_dir = './apple_orange_photos' # remove dead code
 
 data_dir = pathlib.Path(data_dir)
 
@@ -37,7 +39,7 @@ val_ds = tf.keras.utils.image_dataset_from_directory(
   batch_size=batch_size)
 
 class_names = train_ds.class_names
-
+# class_names = ['apple', 'orange', 'others'] # use this!
 
 
 normalization_layer = tf.keras.layers.Rescaling(1./255)
